@@ -1,0 +1,14 @@
+@media (min-width: 768px ) and (max-width: 1200px ){
+    .headline h4{
+        font-size: 12px;
+        font-weight: bold;
+        margin-top: 5px;
+       
+    }
+}
+@media (max-width: 767px ){
+    .headline{
+        display:none
+       
+    }
+}

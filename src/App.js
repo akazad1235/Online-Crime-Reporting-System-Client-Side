@@ -1,12 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Button } from 'react-bootstrap';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import HomePage from './Pages/HomePage';
+
 
 function App() {
+
   return (
     <div className="App">
-      <Button ClassName="btn btn-info">dd</Button>
+      <Router>
+        <Switch>
+            <Route path="/home">
+              <HomePage />
+            </Route>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
+          </Switch>
+      </Router>
     </div>
   );
 }
