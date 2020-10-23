@@ -3,7 +3,6 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 
 const About = () => {
     return (
-        <>
             <Container className="my-4">
                 <Row>
                     <Col xl={9} lg={9} md={9} sm={12} xs={12}>
@@ -20,7 +19,7 @@ const About = () => {
                     </Col>
                 </Row>
             </Container>
-        </>
+        
     );
 };
 

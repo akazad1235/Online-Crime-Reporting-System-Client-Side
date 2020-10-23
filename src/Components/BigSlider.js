@@ -23,10 +23,7 @@ const BigSlider = () => {
             <div>
                 <img className="slider-img" src="https://laz-img-cdn.alicdn.com/images/ims-web/TB1Jw4idMgP7K4jSZFqXXamhVXa.jpg_1200x1200.jpg"/>
             </div>
-           
-          
             </Slider>
- 
     </Container>
     );
 };

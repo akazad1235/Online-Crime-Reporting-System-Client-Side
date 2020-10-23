@@ -1,6 +1,7 @@
 import React from 'react';
 import About from '../Components/About';
 import BigSlider from '../Components/BigSlider';
+import ClientFeedback from '../Components/ClientFeedback';
 import NavbarDesktop from '../Components/Common/NavbarDesktop';
 import Headline from '../Components/Healine';
 
@@ -11,6 +12,7 @@ const HomePage = () => {
            <BigSlider/> 
            <Headline/>
            <About/>
+           <ClientFeedback/>
         </div>
     );
 };
