@@ -12,3 +12,16 @@
        
     }
 }
+@media(min-width: 481px )and (max-width: 1180px ){
+    .blog-readmore{
+        font-size: 13px;
+        width: 80px;
+        height:50px
+       
+    }
+    .post-date{
+        font-size:11px
+    }
+}
+
+

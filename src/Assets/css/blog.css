@@ -1,0 +1,15 @@
+.blog-container-bg{
+    background-color:rgb(91, 35, 247);
+}
+.blog-card{
+
+}
+.blog-card img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    height: 100px;
+    margin-top: 10px;
+    border: 1px solid red;
+}
