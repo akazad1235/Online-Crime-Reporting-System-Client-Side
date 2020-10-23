@@ -4,4 +4,10 @@
 .slider-img{
     width: 100% !important;
     height:450px;
+    margin: 0px;
+    padding: 0px;
+}
+.fwidth{
+    margin: 0 auto;
+    padding: 0px;
 }
