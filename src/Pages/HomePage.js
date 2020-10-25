@@ -7,6 +7,7 @@ import NavbarDesktop from '../Components/Common/NavbarDesktop';
 import Counters from '../Components/Counters';
 import Footer from '../Components/Footer';
 import Headline from '../Components/Healine';
+import Subscribe from '../Components/Subscribe';
 
 const HomePage = () => {
     return (
@@ -18,6 +19,7 @@ const HomePage = () => {
            <ClientFeedback/>
            <Blog/>
            <Counters/>
+           <Subscribe/>
            <Footer/>
         </div>
     );

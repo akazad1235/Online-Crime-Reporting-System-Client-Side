@@ -6,7 +6,7 @@ const Footer = () => {
         <section className="footer-bg">
             <Container className="text-white p-5">
                 <Row className="text-success">
-                    <Col xl={3} lg={3} md={6} sm={6} xs={6}  >
+                    <Col xl={3} lg={3} md={6} sm={6} xs={12}>
                     <h4>Our Links</h4>
                     <nav className="nav flex-column ">
                     <a className="nav-link active border-bottom border-secondary  " href="#"><span className="custom"><i className="fas fa-arrow-right mr-1"></i>About Us</span></a>
@@ -16,7 +16,7 @@ const Footer = () => {
                     <a className="nav-link active border-bottom border-secondary  " href="#"><span className="custom"><i className="fas fa-arrow-right mr-1"></i>About Us</span></a>
                     </nav>
                     </Col>
-                    <Col xl={3} lg={3} md={6} sm={6} xs={6}  >
+                    <Col xl={3} lg={3} md={6} sm={6} xs={12}  >
                     <h4>Usefull Links</h4>
                     <nav className="nav flex-column ">
                     <a className="nav-link active border-bottom border-secondary  " href="#"><span className="custom"><i className="fas fa-arrow-right mr-1"></i>About Us</span></a>
