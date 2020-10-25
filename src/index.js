@@ -6,8 +6,9 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../src/Assets/css/style.css';
 import '../src/Assets/css/responsive.css';
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick.css'; 
+import 'slick-carousel/slick/slick-theme.css';
+import '../src/Assets/css/fontawesome.css';
 
 ReactDOM.render(
   <React.StrictMode>

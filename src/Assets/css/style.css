@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
 @import './navbar.css';
 @import './bigSlider.css';
 @import './headline.css';
 @import './clientFeedback.css';
 @import './blog.css';
+@import './footer.css';

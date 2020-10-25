@@ -4,6 +4,8 @@ import BigSlider from '../Components/BigSlider';
 import Blog from '../Components/Blog';
 import ClientFeedback from '../Components/ClientFeedback';
 import NavbarDesktop from '../Components/Common/NavbarDesktop';
+import Counters from '../Components/Counters';
+import Footer from '../Components/Footer';
 import Headline from '../Components/Healine';
 
 const HomePage = () => {
@@ -15,6 +17,8 @@ const HomePage = () => {
            <About/>
            <ClientFeedback/>
            <Blog/>
+           <Counters/>
+           <Footer/>
         </div>
     );
 };

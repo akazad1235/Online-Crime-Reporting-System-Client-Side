@@ -1,0 +1,13 @@
+.footer-bg{
+    background-color:#232323;
+}
+.custom{
+    color:rgb(199, 188, 188);
+    font-size: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.custom:hover{
+    color:#ffffff;
+    transition:0.3s;
+    transform:scaleX(5)
+}
