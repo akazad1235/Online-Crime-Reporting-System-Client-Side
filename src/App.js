@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import HomePage from './Pages/HomePage';
+import Registration from './Pages/Registration';
 
 
 function App() {
@@ -15,10 +16,13 @@ function App() {
       <Router>
         <Switch>
             <Route path="/home">
-              <HomePage />
+              <HomePage/>
             </Route>
             <Route exact path="/">
-              <HomePage />
+              <HomePage/>
+            </Route>
+            <Route path="/resigtraion">
+                <Registration/>
             </Route>
           </Switch>
       </Router>
