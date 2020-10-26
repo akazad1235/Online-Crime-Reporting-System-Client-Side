@@ -1,0 +1,24 @@
+.login-container{
+    box-shadow: 5px 10px 20px #888888;
+    border-radius: 6px;
+}
+.fb, .google{
+    height: 30px;
+    width:100px;
+    border: 1px solid #444;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+.fb img{
+    width:30px;
+    height:26px;
+    
+}
+.fb span, .google span {
+    font-size:13px;
+    
+}
+.google img{
+    width:30px;
+    height:26px
+}
