@@ -8,6 +8,8 @@ import {
 import HomePage from './Pages/HomePage';
 import Login from './Pages/Login';
 import Registration from './Pages/Registration';
+import AddComplain from './UserDashboard.js/AddComplain';
+import HomeUserDashboard from './UserDashboard.js/HomeUserDashboard';
 
 
 function App() {
@@ -27,6 +29,12 @@ function App() {
             </Route>
             <Route path="/login">
                 <Login/>
+            </Route>
+            <Route path="/userDashboard">
+              <HomeUserDashboard/>
+            </Route>
+            <Route path="/addComplain">
+              <AddComplain/>
             </Route>
           </Switch>
       </Router>

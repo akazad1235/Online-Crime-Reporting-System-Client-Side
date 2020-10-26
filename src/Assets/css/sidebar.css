@@ -1,0 +1,6 @@
+.sidebar li{
+ list-style: none;
+}
+.sidebar{
+    height: 600px;
+}

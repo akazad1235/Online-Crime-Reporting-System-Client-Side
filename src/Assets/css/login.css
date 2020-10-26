@@ -22,3 +22,32 @@
     width:30px;
     height:26px
 }
+.or-login{
+    max-width: 300px;
+    position: relative;
+}
+.or-login::before{
+    content: "";
+    display: block;
+    height: 2px;
+    background:gray;
+    position:absolute;
+    left: 0;
+    width:45%;
+    top:50%
+
+}
+.or-login::after{
+    content: "";
+    display: block;
+    height: 2px;
+    background:gray;
+    position:absolute;
+    right: 0;
+    width:45%;
+    top:50%
+
+}
+
+
+
