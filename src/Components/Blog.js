@@ -2,6 +2,12 @@ import { Button } from 'bootstrap';
 import React from 'react';
 import { Card, Container } from 'react-bootstrap';
 import Slider from "react-slick";
+import blog1 from '../../src/Assets/images/blogs/blog1.jpg';
+import blog2 from '../../src/Assets/images/blogs/blog2.jpg';
+import blog3 from '../../src/Assets/images/blogs/blog3.jpg';
+import blog4 from '../../src/Assets/images/blogs/blog4.jpg';
+import blog5 from '../../src/Assets/images/blogs/blog5.jpg';
+import blog6 from '../../src/Assets/images/blogs/blog6.jpg';
 
 const Blog = () => {
     let settings = {
@@ -56,7 +62,7 @@ const Blog = () => {
             <Slider {...settings}>
                 <div>
                 <Card className="blog-card mr-1">
-                      <img  src="https://static-01.daraz.com.bd/p/e83135c4f08dba766d539651fb79d2fa.jpg_400x400q75.jpg" alt="" />
+                      <img  src={blog1} alt="" />
                   
                       <Card.Body>
                           <h4 className="product-name-on-card text-center">Post Title</h4>
@@ -72,7 +78,21 @@ const Blog = () => {
                 <div>
                 
                 <Card className="blog-card mr-1">
-                      <img  src="https://www.jesusamieiro.com/wp-content/uploads/2019/10/Laravel.png" alt="" />
+                      <img   src={blog2} alt="" />
+                      <Card.Body>
+                          <h4 className="product-name-on-card text-center">Post Title</h4>
+                          <p className="product-price-on-card text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis, ratione? Minima ab illum iste suscipit.</p>
+                          <div className="d-flex">
+                            <a href="" className="btn btn-success m-0 blog-readmore">Read More</a>
+                            <p className="ml-4 text-warning mt-2 post-date">20 Oct 2020</p>
+                          </div>
+                      </Card.Body>
+
+                  </Card>
+                </div>
+                <div>
+                <Card className="blog-card mr-1">
+                      <img   src={blog3} alt="" />
                   
                       <Card.Body>
                           <h4 className="product-name-on-card text-center">Post Title</h4>
@@ -87,7 +107,22 @@ const Blog = () => {
                 </div>
                 <div>
                 <Card className="blog-card mr-1">
-                      <img  src="https://www.jesusamieiro.com/wp-content/uploads/2019/10/Laravel.png" alt="" />
+                      <img   src={blog4} alt="" />
+                  
+                      <Card.Body>
+                          <h4 className="product-name-on-card text-center">Post Title</h4>
+                          <p className="product-price-on-card text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis, ratione? Minima ab illum iste suscipit.</p>
+                          <div className="d-flex">
+                            <a href="" className="btn btn-success m-0 blog-readmore">Read More</a>
+                            <p className="ml-4 text-warning mt-2 post-date">20 Oct 2020</p>
+                          </div>
+                      </Card.Body>
+                      
+                  </Card>
+                </div>
+                <div>
+                <Card className="blog-card mr-1">
+                      <img   src={blog5} alt="" />
                   
                       <Card.Body>
                           <h4 className="product-name-on-card text-center">Post Title</h4>
@@ -102,7 +137,7 @@ const Blog = () => {
                 </div>
                 <div>
                 <Card className="blog-card mr-1">
-                      <img  src="https://www.jesusamieiro.com/wp-content/uploads/2019/10/Laravel.png" alt="" />
+                      <img   src={blog6} alt="" />
                   
                       <Card.Body>
                           <h4 className="product-name-on-card text-center">Post Title</h4>
@@ -117,22 +152,7 @@ const Blog = () => {
                 </div>
                 <div>
                 <Card className="blog-card mr-1">
-                      <img  src="https://www.jesusamieiro.com/wp-content/uploads/2019/10/Laravel.png" alt="" />
-                  
-                      <Card.Body>
-                          <h4 className="product-name-on-card text-center">Post Title</h4>
-                          <p className="product-price-on-card text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis, ratione? Minima ab illum iste suscipit.</p>
-                          <div className="d-flex">
-                            <a href="" className="btn btn-success m-0 blog-readmore">Read More</a>
-                            <p className="ml-4 text-warning mt-2 post-date">20 Oct 2020</p>
-                          </div>
-                      </Card.Body>
-
-                  </Card>
-                </div>
-                <div>
-                <Card className="blog-card mr-1">
-                      <img  src="https://www.jesusamieiro.com/wp-content/uploads/2019/10/Laravel.png" alt="" />
+                      <img  src={blog3} alt="" />
                   
                       <Card.Body>
                           <h4 className="product-name-on-card text-center">Post Title</h4>
@@ -147,22 +167,7 @@ const Blog = () => {
                 </div>
                 <div>
                 <Card className="blog-card mr-1">
-                      <img  src="https://www.jesusamieiro.com/wp-content/uploads/2019/10/Laravel.png" alt="" />
-                  
-                      <Card.Body>
-                          <h4 className="product-name-on-card text-center">Post Title</h4>
-                          <p className="product-price-on-card text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis, ratione? Minima ab illum iste suscipit.</p>
-                          <div className="d-flex">
-                            <a href="" className="btn btn-success m-0 blog-readmore">Read More</a>
-                            <p className="ml-4 text-warning mt-2 post-date">20 Oct 2020</p>
-                          </div>
-                      </Card.Body>
-                      
-                  </Card>
-                </div>
-                <div>
-                <Card className="blog-card mr-1">
-                      <img  src="https://www.jesusamieiro.com/wp-content/uploads/2019/10/Laravel.png" alt="" />
+                      <img  src={blog4}alt="" />
                   
                       <Card.Body>
                           <h4 className="product-name-on-card text-center">Post Title</h4>
