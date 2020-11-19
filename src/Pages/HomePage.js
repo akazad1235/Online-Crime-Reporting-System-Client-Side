@@ -13,9 +13,9 @@ import Subscribe from '../Components/Subscribe';
 const HomePage = () => {
     return (
         <div>
-           
+            
            <NavbarDesktop/>
-           <BigSlider/> 
+           <Header/>
            <Headline/>
            <About/>
            <ClientFeedback/>
