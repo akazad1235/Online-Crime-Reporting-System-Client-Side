@@ -1,38 +1,16 @@
 import React from 'react';
-import axios  from 'axios';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-
-
 import NavbarDesktop from '../Components/Common/NavbarDesktop';
-import Footer from '../Components/Footer';
+import Sidebar from './Sidebar';
 
+const UpdateProfile = () => {
 
-const Registration = () => {
+    
+
 
     const {register, handleSubmit, errors} =useForm();
     const onSubmit = (data) => {
-        const newRegisters = {...data};
-
-        // axios.post('http://localhost:8000/user', newRegister)
-
-        fetch('http://localhost:8000/user',{
-            method: 'POST',
-            body: JSON.stringify(newRegisters),
-            headers: {
-                'Accept': 'application/sjon',
-                'Content-Type': 'application/json',
-  
-              }
-           
-          })
-        .then(function (response) {
-           alert('User Registration Success');
-       })
-       
-       .catch(function (error) {
-           console.log(error)
-       }) 
 
     }
 
@@ -41,7 +19,11 @@ const Registration = () => {
             <NavbarDesktop/>
             <Container>
                 <Row>
-                    <Col lg={8} className="m-auto">
+                <Col xl={2} lg={2} md={2} sm={6} xs={12} style={{backgroundColor:'gray'}}>
+                        <Sidebar/>
+                    </Col>
+                    <Col xl={10} lg={10} md={10} sm={6} xs={12} className="m-auto">
+
                         <div className=" form-container my-5 p-5">
                         <h3 className="mb-4">User Registration </h3>
                         <form onSubmit={handleSubmit(onSubmit)}>
@@ -78,9 +60,8 @@ const Registration = () => {
                     </Col>
                 </Row>
             </Container>
-            <Footer/>
         </div>
     );
 };
 
-export default Registration;
+export default UpdateProfile;

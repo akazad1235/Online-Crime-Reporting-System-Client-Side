@@ -6,12 +6,14 @@ import ClientFeedback from '../Components/ClientFeedback';
 import NavbarDesktop from '../Components/Common/NavbarDesktop';
 import Counters from '../Components/Counters';
 import Footer from '../Components/Footer';
+import Header from '../Components/Header';
 import Headline from '../Components/Healine';
 import Subscribe from '../Components/Subscribe';
 
 const HomePage = () => {
     return (
         <div>
+           
            <NavbarDesktop/>
            <BigSlider/> 
            <Headline/>

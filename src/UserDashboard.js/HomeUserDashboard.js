@@ -13,7 +13,9 @@ const HomeUserDashboard = () => {
                     <Col xl={2} lg={2} md={2} sm={6} xs={12} style={{backgroundColor:'gray'}}>
                         <Sidebar/>
                     </Col>
-                    <Col xl={9} lg={9} md={9} sm={6} xs={12}>dfsdfds</Col>
+                    <Col xl={9} lg={9} md={9} sm={6} xs={12}>
+                        
+                    </Col>
                 </Row>
             </Container>
         <Footer/>

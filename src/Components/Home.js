@@ -5,7 +5,7 @@ import NavbarDesktop from './Common/NavbarDesktop';
 
 const Home = () => {
     return (
-     <div>
+     <div >
          <NavbarDesktop/>
          <BigSlider/>
      </div>

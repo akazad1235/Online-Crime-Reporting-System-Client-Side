@@ -1,23 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { createContext } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+import PrivateRoute from './Components/PrivateRoute';
 import HomePage from './Pages/HomePage';
 import Login from './Pages/Login';
 import Registration from './Pages/Registration';
+import TestApi from './Pages/TestApi';
+import VerifayToken from './Pages/VerifayToken';
 import AddComplain from './UserDashboard.js/AddComplain';
 import HomeUserDashboard from './UserDashboard.js/HomeUserDashboard';
-import UserProfile from './UserDashboard.js/UserProfile';
+import UpdateProfile from './UserDashboard.js/UpdateProfile';
 import ViewComplain from './UserDashboard.js/ViewComplain';
+import ViewProfile from './UserDashboard.js/ViewProfile';
 
+
+export const UserContext = createContext();
 
 function App() {
 
+  const [loggedInUser, setLoggedInUser] = useState({
+    email:'',
+    name:''
+  })
+
+console.log(loggedInUser);
   return (
     <div className="App">
+      <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
         <Switch>
             <Route path="/home">
@@ -26,9 +40,9 @@ function App() {
             <Route exact path="/">
               <HomePage/>
             </Route>
-            <Route path="/resigtraion">
+            <PrivateRoute path="/resigtraion">
                 <Registration/>
-            </Route>
+            </PrivateRoute>
             <Route path="/login">
                 <Login/>
             </Route>
@@ -38,14 +52,24 @@ function App() {
             <Route path="/addComplain">
               <AddComplain/>
             </Route>
-            <Route path="/viewComplain">
+            <PrivateRoute path="/viewComplain">
               <ViewComplain/>
+            </PrivateRoute>
+            <PrivateRoute path="/viewProfile">
+              <ViewProfile/>
+            </PrivateRoute>
+            <PrivateRoute path="/updateProfile">
+              <UpdateProfile/>
+            </PrivateRoute>
+            <Route path="/testApi">
+              <TestApi/>
             </Route>
-            <Route path="/userProfile">
-              <UserProfile/>
+            <Route path="/verityToken">
+              <VerifayToken/>
             </Route>
           </Switch>
       </Router>
+      </UserContext.Provider>
     </div>
   );
 }

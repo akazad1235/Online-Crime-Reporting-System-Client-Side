@@ -38,37 +38,7 @@ const AddComplain = () => {
                                   <input type="text" className="form-control" id="nid-no" name="nid" placeholder="Enter Your Own NID Number" />
                                </div>
                                 </div>
-                                <div className="form-group">
-                                  <label for="dof">Crime description</label>
-                                  <textarea className="form-control" placeholder="Please Write Down Your Crime description"></textarea>
-                               </div>
-                               
-                               <div className="form-group">
-                                  <label for="phone-number">Gender</label><br/>
-                                  <input type="radio" className="m-2" name="gender" value="male" id="male" checked/>
-                                  <lebel for="male">Male</lebel> 
-                                  <input type="radio" className="m-2" name="gender" value="female" id="female"/> 
-                                  <lebel for="female">Female</lebel> 
-                               </div>
-                               <div className="form-group">
-                                  <label for="dof">Date of Birth</label>
-                                  <input type="date" className="form-control" id="dof" name="dof" />
-                               </div>
-                               <div className="d-flex">
-                                    <div className="form-group w-50 mr-1">
-                                        <label for="name">Age</label>
-                                        <input type="text" className="form-control " id="name" name="name" placeholder="Enter Your Age"/>
-                                    </div> 
-                                    <div className="form-group w-50">
-                                        <label for="email-id">Occurs time</label>
-                                        <input type="text" className="form-control" id="email-id" name="email" placeholder="Enter Crime Timing"/>
-                                    </div> 
-                                </div>
-                               <div className="form-group">
-                                  <label for="dof">Occurs Place</label>
-                                  <textarea className="form-control" placeholder="Please Write Down Your Occurs Place"></textarea>
-                               </div>
-                               <div className="d-flex">
+                                <div className="d-flex">
                                     <div className="form-group w-50 mr-1">
                                         <label for="name">Police Station</label>
                                         <select className="form-control">
@@ -92,7 +62,15 @@ const AddComplain = () => {
                                         </select>
                                     </div> 
                                 </div>
-                              
+                                <div className="form-group">
+                                  <label for="dof">Crime description</label>
+                                  <textarea className="form-control" placeholder="Please Write Down Your Crime description"></textarea>
+                               </div>
+
+                               <div className="form-group">
+                                  <label for="dof">Occurs Place</label>
+                                  <textarea className="form-control" placeholder="Please Write Down Your Occurs Place"></textarea>
+                               </div>
                                <div className="form-group">
                                   <label for="img">Your Colleted Source File</label>
                                  <input type="file" className="form-control" id="img" />
