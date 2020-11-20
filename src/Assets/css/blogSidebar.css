@@ -1,0 +1,24 @@
+.cat-list{
+
+}
+.cat-list li{
+    list-style: none;
+    cursor: pointer;
+    margin: 9px 0px 4px 0px ;
+    transition: 0.3s;
+    padding:5px
+
+}
+
+.badge-dark{
+
+        background-color: #C82333!important; 
+    
+}
+.cat-list li:hover{
+    box-shadow: 1px 9px 9px #888888;
+    padding: 2px;
+    transition: 0.2s;
+    border-radius: 5px;
+    
+}
