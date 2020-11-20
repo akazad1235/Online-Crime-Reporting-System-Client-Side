@@ -30,3 +30,10 @@
     
       
 }
+.navbar-light span.navbar-toggler-icon {
+background-color: red;
+  color: white;
+}
+.custom-toggler.navbar-toggler { 
+  border-color: lightgreen; 
+}

@@ -7,6 +7,7 @@ import {
   Link
 } from "react-router-dom";
 import PrivateRoute from './Components/PrivateRoute';
+import HomeBlog from './Pages/Blogs/HomeBlog';
 import HomePage from './Pages/HomePage';
 import Login from './Pages/Login';
 import Registration from './Pages/Registration';
@@ -61,6 +62,9 @@ console.log(loggedInUser);
             <PrivateRoute path="/updateProfile">
               <UpdateProfile/>
             </PrivateRoute>
+            <Route path="/blogDetails">
+              <HomeBlog/>
+            </Route>
             <Route path="/testApi">
               <TestApi/>
             </Route>

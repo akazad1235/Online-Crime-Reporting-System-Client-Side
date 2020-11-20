@@ -2,10 +2,12 @@
     top:85%;
 }
 .slider-img{
-    width: 100% !important;
-    height:450px;
-    margin: 0px;
-    padding: 0px;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  height:110px;
+  border-radius: 50%;
 }
 .fwidth{
     margin: 0 auto;

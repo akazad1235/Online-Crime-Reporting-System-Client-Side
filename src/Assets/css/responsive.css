@@ -23,5 +23,10 @@
         font-size:11px
     }
 }
+@media (max-width: 768px) {
+    nav.navbar {
+      background: lightgray;
+    }
+  }
 
 

@@ -25,7 +25,7 @@ const NavbarDesktop = () => {
         <Container fluid={true} className="m-0 p-0 ">
             <Navbar expand="lg"  className={navbar ? 'header-nav sticky': 'header-nav'}>
                 <Navbar.Brand href="#home">Crome</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Toggle aria-controls="navbar-toggler ml-auto custom-toggler" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
                         <Nav.Link > <Link to="/home">Home</Link></Nav.Link>
