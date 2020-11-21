@@ -1,0 +1,20 @@
+.counter-bg{
+    background-color: aliceblue;
+    
+}
+.counter h4{
+
+  font-weight: bold;
+
+}
+.counter i{
+    color:#C82333;
+    font-size: 40px;
+    margin-top: 20px;
+}
+.counter span{
+    font-size: 30px;
+    margin-left: 10px;
+    font-weight: bold;
+    margin-top: 20px;
+}

@@ -18,6 +18,7 @@ const HomePage = () => {
            <Header/>
            <Headline/>
            <About/>
+           <Counters/>
            <ClientFeedback/>
            <Blog/>
            <Counters/>
