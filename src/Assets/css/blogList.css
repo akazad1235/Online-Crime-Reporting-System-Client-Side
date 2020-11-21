@@ -1,0 +1,12 @@
+figure{
+    overflow: hidden;
+}
+.image-blog img{
+    width:100%;
+    height: 300px;
+    transform:scale(1);
+    transition: 0.5s ease-in-out;
+}
+.image-blog img:hover{
+    transform:scale(1.2)
+}
