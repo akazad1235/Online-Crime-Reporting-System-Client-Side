@@ -13,18 +13,23 @@ const Login = () => {
     const {register, handleSubmit, errors} =useForm();
 
     const [error, setError] = useState()
+    let homePage = useHistory();
 
 
 
     const onSubmit = (data) => {
         const login = {...data};
-        
+        //console.log(login);
         // axios.post('http://localhost:8000/user', newRegister)
 
-        axios.post('http://localhost:8000/login',login)
+        axios.post('http://localhost:8001/login',login)
         .then( res => {
             if (res.data.token) {
-                localStorage.setItem('usertoken', res.data.token);   
+                localStorage.setItem('usertoken', res.data.token); 
+                const token = res.data.token;
+                alert('welcome, you are a valid user');
+                homePage.push("/verityToken");
+
             }else{
                 const getError = res.data.error;
                 setError(getError);
@@ -57,11 +62,11 @@ const Login = () => {
                         </div>
                         <div className="form-group">
                               <label for="pass"></label>
-                             <input type="submit" className="form-control btn btn-success"  value="Login"/>
-                             <Link to="/verityToken">getCode</Link>
+                              <input type="submit" className="form-control btn btn-success"  value="Login" />
+                              
                         </div>
                         <div>
-                            <p>Don't Have an Account <a href="">Sign up</a></p>
+                            <p>Don't Have an Account <Link to="/resigtraion">Sign Up</Link> </p>
                         </div>
                         <p className="or-login text-center">OR</p>
                         

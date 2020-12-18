@@ -13,6 +13,7 @@ const Registration = () => {
     const {register, handleSubmit, errors} =useForm();
     const onSubmit = (data) => {
         const newRegisters = {...data};
+       // console.log(newRegisters);
 
         // axios.post('http://localhost:8000/user', newRegister)
 
@@ -22,9 +23,7 @@ const Registration = () => {
             headers: {
                 'Accept': 'application/sjon',
                 'Content-Type': 'application/json',
-  
               }
-           
           })
         .then(function (response) {
            alert('User Registration Success');

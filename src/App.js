@@ -44,9 +44,9 @@ console.log(loggedInUser);
             <Route exact path="/">
               <HomePage/>
             </Route>
-            <PrivateRoute path="/resigtraion">
+            <Route path="/resigtraion">
                 <Registration/>
-            </PrivateRoute>
+            </Route>
             <Route path="/login">
                 <Login/>
             </Route>

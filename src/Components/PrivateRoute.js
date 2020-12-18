@@ -7,7 +7,17 @@ import { UserContext } from '../App';
 const PrivateRoute = ({ children, ...rest }) => {
 
     // const[loggedInUser, setLoggedInUser] = useState();
-    // const email = 'tuhin1@gmail.com';
+    //  const email = 'tuhin1@gmail.com';
+
+     const getData = localStorage.getItem('usertoken');
+     const email = localStorage.getItem('email');
+    
+    // const config = {
+    //     headers:{ 
+    //         'Content-Type': 'application/json',
+    //         'authorization': 'Bearer'+getData
+    //     }
+    // }
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
@@ -15,7 +25,7 @@ const PrivateRoute = ({ children, ...rest }) => {
             <Route
             {...rest}
             render={({ location }) =>
-            localStorage.getItem('email') && localStorage.getItem('usertoken')? (
+            email ? (
                 children
                 ) : (
                 <Redirect

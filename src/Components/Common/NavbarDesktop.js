@@ -24,14 +24,14 @@ const NavbarDesktop = () => {
     return (
         <Container fluid={true} className="m-0 p-0 ">
             <Navbar expand="lg"  className={navbar ? 'header-nav sticky': 'header-nav'}>
-                <Navbar.Brand href="#home">Crome</Navbar.Brand>
+                <Navbar.Brand href="#home" className="text-info">E-Crime</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbar-toggler ml-auto custom-toggler" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
-                        <Nav.Link > <Link to="/home">Home</Link></Nav.Link>
-                        <Nav.Link > <Link to="/viewComplain">User Panel</Link></Nav.Link>
-                        <Nav.Link > <Link to="/resigtraion">{localStorage.getItem('email') ? '': 'Registration'}</Link></Nav.Link>
-    <Nav.Link > <Link to="/login">{localStorage.getItem('email') ? '': 'Login'}</Link></Nav.Link>
+                        <Nav.Link > <Link to="/home" className="text-info">Home</Link></Nav.Link>
+                        <Nav.Link > <Link to="/viewComplain" className="text-info">User Panel</Link></Nav.Link>
+                        <Nav.Link > <Link to="/resigtraion" className="text-info">{localStorage.getItem('email') ? '': 'Registration'}</Link></Nav.Link>
+                        <Nav.Link > <Link to="/login" className="text-info">{localStorage.getItem('email') ? '': 'Login'}</Link></Nav.Link>
                        
                        <form>
                            {localStorage.getItem('email') ?  <button type="submit" className="btn btn-danger" onClick={logout}><Link to="/">Logout</Link></button> : '' }

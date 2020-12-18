@@ -1,5 +1,5 @@
-  
-.header-container{
+
+ .header-container{
     height: 100%;
     width: 100%;
     background-size: cover;
@@ -7,6 +7,7 @@
     background-repeat: no-repeat;
     position: relative;
 }
+
 .header-container::before{
     content:"";
     display: block;
@@ -16,7 +17,7 @@
     background: rgb(36, 41, 73);
     opacity: .8;
     top: 0;
-}
+} 
 .header-box{
     margin: 0;
     position: absolute;
@@ -24,3 +25,22 @@
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+.complain-btn Button:hover{
+    cursor: pointer;
+}
+
+/* 
+  .header-box video {
+    width: 100%;
+    display: block;
+  }
+  .header-box:before {
+    content: '';
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  } */

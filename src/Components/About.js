@@ -1,12 +1,17 @@
 import React from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import Slider from 'react-slick';
+import axios  from 'axios';
 import slider1 from '../../src/Assets/images/slider/slider1.jpg'
 import slider2 from '../../src/Assets/images/slider/slider2.jpg'
 import slider3 from '../../src/Assets/images/slider/slider4.jpg'
 import slider4 from '../../src/Assets/images/slider/slider5.jpg'
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const About = () => {
+
+    const [criminals, setCriminals] = useState([]);
     const settings = {
         dots: false,
         infinite: true,
@@ -16,6 +21,16 @@ const About = () => {
         slidesToShow: 1,
         slidesToScroll: 1
     }
+
+    useEffect(() =>{
+        axios.get('http://127.0.0.1:8000/testCriminal')
+        .then(res => {
+            setCriminals(res.data);
+        })
+    }, [])
+
+    console.log(criminals);
+
     return (
             <Container className="my-4">
                 <Row>
@@ -31,31 +46,22 @@ const About = () => {
                             <h5 className="my-3 p-2" style={{borderBottom:'2px solid green'}}>Most Of the Criminals</h5>
                             <Container fluid={true} className="m-0 p-0 overflow-hidden">
                                 <Slider {...settings}>
-                                <div>
-                                    <img className="slider-img" src={slider1}/>
-                                    <div className="criminals-details">
-                                    <h4>Md. Jahirul Islam</h4>
-                                </div>
-                                </div>
-                                <div>
-                                    <img className="slider-img" src={slider2}/>
-                                    <div className="criminals-details">
-                                    <h4>Md. Jahirul Islam</h4>
-                                </div>
-                                </div>
-                                <div>
-                                    <img className="slider-img" src={slider3}/>
-                                    <div className="criminals-details">
-                                    <h4>Md. Jahirul Islam</h4>
-                                </div>
-                                </div>
-                                <div>
-                                    <img className="slider-img" src={slider4}/>
+                            {
+                                criminals.map((crm) => {
+                                  
+                                   return <div>
+                                    <img className="slider-img" src={`http:///127.0.0.1:8000/admin/images/criminals/${crm.image}`}/>
                                     <div className="criminals-details p-2">
-                                    <h4 className="text-center my-2 p-1">Md. Jahirul Islam</h4>
-                                    <p className="text-justify my-2 p-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit sint voluptas distinctio delectus ipsam nulla animi, ex qui praesentium dignissimos?</p>
+                                    <h4 className="text-center my-2 p-1">{crm.name}</h4>
+                                    <p className="text-justify my-2 p-1">{crm.desc}</p>
                                     </div>
-                                </div>
+                                </div> 
+                                })
+                            }
+
+                                
+          
+                                
                                 
                                 </Slider>
                         </Container>

@@ -16,12 +16,10 @@ const HomePage = () => {
             
            <NavbarDesktop/>
            <Header/>
-           <Headline/>
            <About/>
            <Counters/>
            <ClientFeedback/>
            <Blog/>
-           <Counters/>
            <Subscribe/>
            <Footer/>
         </div>
