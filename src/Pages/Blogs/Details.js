@@ -34,7 +34,7 @@ const Details = () => {
 
         <ToastContainer />
         <button onClick={notify}>Notify !</button>
-                        <img className="img-fluid mt-5" src="https://tarettis.sirv.com/Images/blog_09.jpg" alt=""/>
+                        <img className="img-fluid mt-5" src="https://empowerms.org/wp-content/uploads/2019/10/images.jpeg" alt=""/>
                         <div className="d-flex my-3 ">
                             <p><span className="text-danger"><i  class="fas fa-clock"></i></span> 20 Nov 2020</p>
                             <p className="ml-5"><span className="text-danger"><i class="fas fa-user-alt"></i></span> By Monir</p>

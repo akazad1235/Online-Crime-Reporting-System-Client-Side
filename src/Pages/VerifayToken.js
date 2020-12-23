@@ -5,7 +5,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../App';
-import './hide.css';
+
 
 const VerifayToken = () => {
 
@@ -22,15 +22,16 @@ const VerifayToken = () => {
 
     const onSubmit = (data) => {
         const tokoen = {...data};
-        console.log(tokoen);
+      //  console.log(tokoen);
         
         // axios.post('http://localhost:8000/user', newRegister)
 
         axios.post('http://localhost:8001/tostToken', tokoen)
         .then(res => {
            if (res.data.email) {
-                localStorage.setItem('email', res.data.email);
+                localStorage.setItem('id', res.data.id);
                 localStorage.setItem('name', res.data.name);
+                localStorage.setItem('email', res.data.email);
                 if (res.data.email) {
                     const email = localStorage.getItem('email');
                     const name = localStorage.getItem('name');
@@ -75,7 +76,7 @@ const VerifayToken = () => {
                           
                             <div className="form-group">
                                 <label for="pass"></label>
-                                <input type="submit" className="form-control btn btn-success"  value="Token Submit"/>
+                                <input type="submit" className="form-control btn btn-info"  value="Token Submit"/>
                             </div>
                         </form>
                     </Col>

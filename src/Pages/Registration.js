@@ -2,35 +2,51 @@ import React from 'react';
 import axios  from 'axios';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 import NavbarDesktop from '../Components/Common/NavbarDesktop';
 import Footer from '../Components/Footer';
+import { useHistory } from 'react-router-dom';
 
 
 const Registration = () => {
 
-    const {register, handleSubmit, errors} =useForm();
+    const locationLogin =  useHistory();
+    const {register, handleSubmit, errors, reset } =useForm();
     const onSubmit = (data) => {
         const newRegisters = {...data};
-       // console.log(newRegisters);
-
-        // axios.post('http://localhost:8000/user', newRegister)
-
-        fetch('http://localhost:8000/user',{
-            method: 'POST',
-            body: JSON.stringify(newRegisters),
-            headers: {
-                'Accept': 'application/sjon',
-                'Content-Type': 'application/json',
-              }
-          })
-        .then(function (response) {
-           alert('User Registration Success');
+        axios.post('http://localhost:8000/api/register',newRegisters)
+        .then(function (res) {
+           reset()
+           if(res.data.success){
+                
+                setTimeout(function(){
+                    locationLogin.push("/login");
+                },3600)
+                toast.success('Successfully User Registration', {
+                position: "bottom-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+           }
        })
        
        .catch(function (error) {
-           console.log(error)
+        toast.danger('User Registration Filad', {
+            position: "bottom-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
        }) 
 
     }
@@ -65,7 +81,7 @@ const Registration = () => {
                                </div>
                                <div className="form-group">
                                   <label for="pass">Password<span className="text-danger">*</span></label>
-                                 <input type="password" className="form-control" id="pass" name="password"  ref={register}/>
+                                 <input type="password" className="form-control" id="pass" name="password" placeholder="password minimum 8 character "  ref={register}/>
                                </div>
                                <div className="form-group">
                                   <label for="pass"></label>
@@ -78,6 +94,18 @@ const Registration = () => {
                 </Row>
             </Container>
             <Footer/>
+            <ToastContainer
+                position="bottom-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={true}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                />
+           <ToastContainer />
         </div>
     );
 };

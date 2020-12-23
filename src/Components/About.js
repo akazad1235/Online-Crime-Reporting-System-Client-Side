@@ -23,7 +23,7 @@ const About = () => {
     }
 
     useEffect(() =>{
-        axios.get('http://127.0.0.1:8000/testCriminal')
+        axios.get('http://127.0.0.1:8000/api/criminals')
         .then(res => {
             setCriminals(res.data);
         })

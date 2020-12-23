@@ -17,10 +17,10 @@ const BlogSidebar = () => {
                <h2 className="my-4" style={{borderLeft:'4px solid', borderColor:'#C82333'}}><span className="ml-2 font-weight-bold">Category</span></h2>
                <div className="sidebar-list"> 
                     
-                        <li className="p-2"><a href="">Web Design</a><span class="badge badge-dark float-right">15</span></li>
-                        <li className="p-2"><a href="">Web Design</a><span class="badge badge-dark float-right">15</span></li>
-                        <li className="p-2"><a href="">Web Design</a><span class="badge badge-dark float-right">15</span></li>
-                        <li className="p-2"><a href="">Web Design</a><span class="badge badge-dark float-right">15</span></li>
+                        <li className="p-2"><a href="">E-Crime</a><span class="badge badge-dark float-right">15</span></li>
+                        <li className="p-2"><a href="">E-Crime</a><span class="badge badge-dark float-right">15</span></li>
+                        <li className="p-2"><a href="">E-Crime</a><span class="badge badge-dark float-right">15</span></li>
+                        <li className="p-2"><a href="">E-Crime</a><span class="badge badge-dark float-right">15</span></li>
    
                </div>
            </div>
@@ -31,7 +31,7 @@ const BlogSidebar = () => {
                     <div className="image">
                     <div className="zoom-in">
                     <div className="img-figure">
-                            <img className="img-fluid " src="https://tarettis.sirv.com/Images/blog_09.jpg "alt="" />
+                            <img className="img-fluid " src="https://empowerms.org/wp-content/uploads/2019/10/images.jpeg "alt="" />
                     </div>
                     </div>
                     </div>
@@ -48,7 +48,7 @@ const BlogSidebar = () => {
                     <div className="image">
                     <div className="zoom-in">
                     <div className="img-figure">
-                            <img className="img-fluid" src="https://tarettis.sirv.com/Images/blog_09.jpg "alt="" />
+                            <img className="img-fluid" src="https://s3.amazonaws.com/guwahati-plus/article_banners/1239/original/crime_representative_image.jpg"alt="" />
                     </div>
                     </div>
                     </div>

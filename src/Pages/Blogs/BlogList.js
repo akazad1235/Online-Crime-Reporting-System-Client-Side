@@ -7,7 +7,7 @@ const BlogList = () => {
         <div className="my-5">
         <div className="image-blog">
            <figure>
-            <img src="https://tarettis.sirv.com/Images/blog_09.jpg" alt=""/>
+            <img src="https://cdn.da.org.za/wp-content/uploads/2020/07/31113834/crime-stats.jpg" alt=""/>
             </figure>
         </div>
         <div className="d-flex my-3 ">
@@ -22,7 +22,7 @@ const BlogList = () => {
         <div className="my-5">
         <div className="image-blog">
            <figure>
-            <img  src="https://tarettis.sirv.com/Images/blog_09.jpg" alt=""/>
+            <img  src="https://empowerms.org/wp-content/uploads/2019/10/images.jpeg" alt=""/>
             </figure>
         </div>
         <div className="d-flex my-3 ">
