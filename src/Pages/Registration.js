@@ -4,6 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import message from '../Helpers/response';
 
 
 import NavbarDesktop from '../Components/Common/NavbarDesktop';
@@ -25,28 +26,14 @@ const Registration = () => {
                 setTimeout(function(){
                     locationLogin.push("/login");
                 },3600)
-                toast.success('Successfully User Registration', {
-                position: "bottom-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                });
+                message('success', res.data.success);
+           }else{
+            message('warning', res.data.warning);
            }
        })
        
        .catch(function (error) {
-        toast.danger('User Registration Filad', {
-            position: "bottom-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            });
+        message('danger', 'User Registration Faild');
        }) 
 
     }
@@ -62,26 +49,26 @@ const Registration = () => {
                         <form onSubmit={handleSubmit(onSubmit)}>
                                <div className="form-group">
                                   <label for="name">Name<span className="text-danger">*</span></label>
-                                 <input type="text" className="form-control" id="name" name="name" placeholder="Enter Your Name" ref={register}/>
+                                 <input type="text" className="form-control" id="name" name="name" placeholder="Enter Your Name" ref={register} required/>
                                </div> 
                                <div className="form-group">
                                   <label for="email-id" >Email<span className="text-danger">*</span></label>
-                                 <input type="text" className="form-control" id="email-id" name="email" placeholder="Enter Your Email" ref={register}/>
+                                 <input type="text" className="form-control" id="email-id" name="email" placeholder="Enter Your Email" ref={register} required/>
                                </div> 
                                <div className="form-group" ref={register}>
                                   <label for="phone-number">Gender<span className="text-danger">*</span></label><br/>
-                                  <input type="radio" className="m-2" name="gender" value="male" id="male" checked ref={register} />
+                                  <input type="radio" className="m-2" name="gender" value="male" id="male" checked ref={register} required />
                                   <lebel for="male">Male</lebel> 
-                                  <input type="radio" className="m-2" name="gender" value="female" id="female" ref={register}/> 
+                                  <input type="radio" className="m-2" name="gender" value="female" id="female" ref={register} required/> 
                                   <lebel for="female">Female</lebel> 
                                </div>
                                <div className="form-group">
                                   <label for="dof">Date of Birth<span className="text-danger">*</span></label>
-                                  <input type="date" className="form-control" id="dof" name="birth_day" ref={register}/>
+                                  <input type="date" className="form-control" id="dof" name="birth_day" ref={register} required/>
                                </div>
                                <div className="form-group">
                                   <label for="pass">Password<span className="text-danger">*</span></label>
-                                 <input type="password" className="form-control" id="pass" name="password" placeholder="password minimum 8 character "  ref={register}/>
+                                 <input type="password" className="form-control" id="pass" name="password" placeholder="password minimum 8 character" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  ref={register} title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"  required/>
                                </div>
                                <div className="form-group">
                                   <label for="pass"></label>
@@ -105,7 +92,7 @@ const Registration = () => {
                 draggable
                 pauseOnHover
                 />
-           <ToastContainer />
+           <ToastContainer/>
         </div>
     );
 };

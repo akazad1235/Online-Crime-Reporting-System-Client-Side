@@ -19,7 +19,7 @@ const Details = () => {
     }
     return (
         <>
-                <ToastContainer
+        <ToastContainer
          position="bottom-center"
          autoClose={5000}
          hideProgressBar={false}
