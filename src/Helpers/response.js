@@ -22,15 +22,19 @@ const message = (status, msg) =>{
             progress: undefined,
             });
     }else{
-        toast.danger(msg, {
-            position: "bottom-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            });
+
+        if (status =='error') {
+            toast.error(msg, {
+                position: "bottom-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+        }
+       
     }
  
 

@@ -5,6 +5,9 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../App';
+import message from '../Helpers/response';
+import {ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const VerifayToken = () => {
@@ -21,12 +24,12 @@ const VerifayToken = () => {
     const { from } = location.state || { from: { pathname: "/viewComplain" } };
 
     const onSubmit = (data) => {
-        const tokoen = {...data};
+        const token = {...data};
       //  console.log(tokoen);
         
         // axios.post('http://localhost:8000/user', newRegister)
 
-        axios.post('http://localhost:8001/tostToken', tokoen)
+        axios.post('http://localhost:8001/tostToken', token)
         .then(res => {
            if (res.data.email) {
                 localStorage.setItem('id', res.data.id);
@@ -40,18 +43,22 @@ const VerifayToken = () => {
                         'email': email,
                         'name': name
                     });
-                    history.replace(from);
-                    history.push("/home");
-                    alert('login success')
+                    message('success', 'Welcome, User Login Success');
+                    setTimeout(function(){
+                        history.push("/home");
+                        history.replace(from);
+                    },3600)
                 }
-           }  
-            
+           }       
        })
        
        .catch(error =>  {
-           alert(error);
+        message('error', 'Invalid Token, Please Try Again Login');
+        
+        setTimeout(function(){
+            history.push("/login");
+        },3600)
        }) 
-
     }
 
     //handle click token id show when id click
@@ -82,6 +89,18 @@ const VerifayToken = () => {
                     </Col>
                 </Row>
             </Container>
+            <ToastContainer
+                position="bottom-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={true}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                />
+           <ToastContainer/>
         </div>
     );
 };

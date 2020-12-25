@@ -6,6 +6,9 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import fb from '../../src/Assets/images/icon/fb.png';
 import google from '../../src/Assets/images/icon/google.png';
 import { useState } from 'react';
+import message from '../Helpers/response';
+import {ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
@@ -27,8 +30,11 @@ const Login = () => {
             if (res.data.token) {
                 localStorage.setItem('usertoken', res.data.token); 
                 const token = res.data.token;
-                alert('welcome, you are a valid user');
-                homePage.push("/verityToken");
+                message('success', 'Welcome, You are a valid user');
+                setTimeout(function(){
+                    homePage.push("/verityToken");
+                },3600)
+                
 
             }else{
                 const getError = res.data.error;
@@ -82,6 +88,18 @@ const Login = () => {
                 </Col>
             </Row>
         </Container>
+            <ToastContainer
+                position="bottom-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={true}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                />
+           <ToastContainer/>
     </>
     );
 };

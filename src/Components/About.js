@@ -2,12 +2,9 @@ import React from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import Slider from 'react-slick';
 import axios  from 'axios';
-import slider1 from '../../src/Assets/images/slider/slider1.jpg'
-import slider2 from '../../src/Assets/images/slider/slider2.jpg'
-import slider3 from '../../src/Assets/images/slider/slider4.jpg'
-import slider4 from '../../src/Assets/images/slider/slider5.jpg'
 import { useState } from 'react';
 import { useEffect } from 'react';
+import appUrl from '../Helpers/appUrl';
 
 const About = () => {
 
@@ -23,11 +20,23 @@ const About = () => {
     }
 
     useEffect(() =>{
-        axios.get('http://127.0.0.1:8000/api/criminals')
-        .then(res => {
-            setCriminals(res.data);
-        })
-    }, [])
+
+       async function fetchData(){
+        const request = await axios.get(`${appUrl.baseUrl}/api/criminals`);
+        // .then(res => {
+        //    // setCriminals(reqData);
+        //    console.log();
+        // })
+
+       
+        setCriminals(request.data.result);
+      //  console.log(request);
+        
+        
+       } 
+       fetchData();
+       
+    }, [appUrl.url])
 
     console.log(criminals);
 
@@ -47,10 +56,10 @@ const About = () => {
                             <Container fluid={true} className="m-0 p-0 overflow-hidden">
                                 <Slider {...settings}>
                             {
-                                criminals.map((crm) => {
+                                criminals.map((crm)  => {
                                   
-                                   return <div>
-                                    <img className="slider-img" src={`http:///127.0.0.1:8000/admin/images/criminals/${crm.image}`}/>
+                                   return <div key={crm.id}>
+                                    <img className="slider-img" src={`${appUrl.baseUrl}/admin/images/criminals/${crm.image}`}/>
                                     <div className="criminals-details p-2">
                                     <h4 className="text-center my-2 p-1">{crm.name}</h4>
                                     <p className="text-justify my-2 p-1">{crm.desc}</p>

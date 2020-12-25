@@ -1,6 +1,8 @@
-class appUrl{
+const appUrl = {
     
-    static url = 'http://localhost:8001/';
+    
+    baseUrl:'http://localhost:8000',
+    url:'http://127.0.0.1:8000/api/criminals',
 }
 
 export default appUrl
