@@ -23,7 +23,7 @@ const AddComplain = () => {
     }
 
     //handle hook form
-    const {register, handleSubmit, errors} =useForm();
+    const {register, handleSubmit, errors, reset} =useForm();
     useEffect(()=>{
         Axios.get('http://localhost:8000/addComplian')
         .then(res => {
@@ -69,6 +69,7 @@ const AddComplain = () => {
        Axios.post('http://localhost:8000/api/complain', formData)
        .then(res => {
         message('success', 'Welcome, User Login Success');
+        reset();
        })
        .catch(error =>  {
         message('error', 'Your Complain Faild');
@@ -113,12 +114,12 @@ const AddComplain = () => {
                                         <select className="form-control" ref={register} name="reg_id" hidden>
                                              <option selected value={localStorage.getItem('id')} >{localStorage.getItem('name')}</option>))
                                         </select>
-                                    </div> 
+                                </div> 
                                 <div className="d-flex">
-                                    <div className="form-group w-50 mr-1"  >
-                                        <label for="name">Police Station</label>
-                                        <select className="form-control" ref={register} name="station_id" >
-                                            <option>Select Nearest Police Station</option>
+                                    <div className="form-group w-50 mr-1">
+                                        <label for="name">Police Station<span className="text-danger">*</span></label>
+                                        <select className="form-control" ref={register} name="station_id" required>
+                                            <option value="">Select Nearest Police Station</option>
                                             {
                                                 stations.map((std => <option value={std.id}>{std.policeStationName}</option>))
                                            }
@@ -127,9 +128,9 @@ const AddComplain = () => {
                                     </div> 
                                     
                                     <div className="form-group w-50">
-                                        <label for="email-id">Crime type</label>
-                                        <select className="form-control" ref={register} name="crime_type" >
-                                            <option>Select  Crime Type</option>
+                                        <label for="email-id">Crime type <span className="text-danger">*</span></label>
+                                        <select className="form-control" ref={register} name="crime_type" required>
+                                            <option value="">Select  Crime Type</option>
                                             <option value="marder">Marder</option>
                                             <option value="rap">Rap</option>
                                             <option value="theft">Theft</option>
@@ -138,17 +139,17 @@ const AddComplain = () => {
                                     </div> 
                                 </div>
                                 <div className="form-group">
-                                  <label for="dof">Crime description</label>
-                                  <textarea className="form-control" ref={register} placeholder="Please Write Down Your Crime description" name="desc" ></textarea>
+                                  <label for="dof">Crime description <span className="text-danger">*</span></label>
+                                  <textarea className="form-control" ref={register} placeholder="Please Write Down Your Crime description" name="desc" required></textarea>
                                </div>
 
                                <div className="form-group">
-                                  <label for="dof">Occurs Place</label>
-                                  <textarea className="form-control" ref={register} placeholder="Please Write Down Your Occurs Place" name="place" ></textarea>
+                                  <label for="dof">Occurs Place <span className="text-danger">*</span></label>
+                                  <textarea className="form-control" ref={register} placeholder="Please Write Down Your Occurs Place" name="place" required></textarea>
                                </div>
                                 <div className="form-group">
-                                  <label for="img">Your Colleted Source Image</label>
-                                 <input  type="file" ref={register} accept=".jpg, .png, .gif, .jpeg" className="form-control" id="img" name="image" />
+                                  <label for="img">Your Colleted Source Image <span className="text-danger">*</span></label>
+                                 <input  type="file" ref={register} accept=".jpg, .png, .gif, .jpeg" className="form-control" id="img" name="image" required/>
                                </div> 
                               <div className="form-group">
                                   <label for="img">Your Colleted Source File</label>

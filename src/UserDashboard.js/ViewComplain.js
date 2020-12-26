@@ -17,7 +17,7 @@ const ViewComplain = () => {
     //send code when click
     const [sendCode, setSendCode] = useState({})
 
-    console.log(sendCode);
+    console.log(complain);
 
       //checking user active or not
       const id =localStorage.getItem('id');
@@ -34,10 +34,11 @@ const ViewComplain = () => {
 
     
     //view complain only own complain
+    const LoggedId = localStorage.getItem('id');
      useEffect(()=>{
-         Axios.get('http://localhost:8000/api/allComplians')
+         Axios.get(`http://localhost:8000/api/complain/${LoggedId}`)
         .then(res => {
-            setComplain(res.data);
+            setComplain(res.data.result);
         })
     }, [])
 
@@ -54,8 +55,8 @@ const ViewComplain = () => {
     }
    // console.log(checkUser.varification_code);
 
-
-
+    const arr = ['Panding', 'processing', 'Done'];
+    const arr2 = ['danger', 'warning', 'success'];
 
     return (
         <div>
@@ -77,10 +78,9 @@ const ViewComplain = () => {
                         <Row>
                             {
                                 complain.map((comp)=>{
-                                  return  <Col xl={4}>
-                                      
+                                  return  <Col xl={4}>   
                                     <Card className="blog-card mr-1 my-2 ">
-                                        <button className="btn btn-danger text-capitalize">{comp.status}</button>
+                                        <button className={`btn btn-${arr2[comp.comp_status]} text-capitalize`}>{arr[comp.comp_status] }</button>
                                         <Card.Body>
                                             <h4 className="product-name-on-card text-center  text-capitalize">{comp.complain_type}</h4>
                                             <p className="product-price-on-card text-justify ">{comp.desc.substr(0, 100)}</p>
