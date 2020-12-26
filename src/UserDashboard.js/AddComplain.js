@@ -7,14 +7,15 @@ import Footer from '../Components/Footer';
 import Sidebar from './Sidebar';
 import Axios from 'axios';
 import { useForm } from 'react-hook-form';
+import {ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import message from '../Helpers/response';
 
 const AddComplain = () => {
-
-    
     const [stations, setStation] = useState([])
-    const [file, setFile] = useState(null);
+   const [file, setFile] = useState(null);
 
-    console.log(file);
+    //console.log(file);
 
     const handleFileChange = (e) => {
         const newFile = e.target.files;
@@ -32,9 +33,11 @@ const AddComplain = () => {
 
     
 
-    const onSubmit = async (data) => {
+    const onSubmit =  (data) => {
+       // const getData = {...data}
+       // console.log(getData);
        // console.log(data.image[0].name);
-        const formData = new FormData()
+          const formData = new FormData()
            
           formData.append('reg_id', data.reg_id);
           formData.append('station_id', data.station_id);
@@ -42,11 +45,13 @@ const AddComplain = () => {
           formData.append('place', data.place);
           formData.append('desc', data.desc);  
           formData.append('image', data.image[0]);
-
-          for (let i = 0; i < file.length; i++) {
+        if(file){
+           for (let i = 0; i < file.length; i++) {
             formData.append(`file[${i}]`, file[i])
         }
-         
+          
+        }
+          
          
         //  formData.append('desc', 'ggg');
         //  formData.append('address', 'jjj');
@@ -61,14 +66,12 @@ const AddComplain = () => {
         
         
         
-       Axios.post('http://localhost:8000/api/complainStor', formData)
+       Axios.post('http://localhost:8000/api/complain', formData)
        .then(res => {
-           alert('complian Added Success');
-           //return res.data;
-           console.log(res.data);
+        message('success', 'Welcome, User Login Success');
        })
        .catch(error =>  {
-        alert(error);
+        message('error', 'Your Complain Faild');
     }) 
    
        }
@@ -143,13 +146,13 @@ const AddComplain = () => {
                                   <label for="dof">Occurs Place</label>
                                   <textarea className="form-control" ref={register} placeholder="Please Write Down Your Occurs Place" name="place" ></textarea>
                                </div>
-                               <div className="form-group">
+                                <div className="form-group">
                                   <label for="img">Your Colleted Source Image</label>
                                  <input  type="file" ref={register} accept=".jpg, .png, .gif, .jpeg" className="form-control" id="img" name="image" />
                                </div> 
-                               <div className="form-group">
+                              <div className="form-group">
                                   <label for="img">Your Colleted Source File</label>
-                                 <input type="file"  onChange={handleFileChange} accept=".pdf, .docs, .mp3, .mp4, .avi" className="form-control" id="img" name="file[]" multiple/>
+                                 <input type="file" onChange={handleFileChange}  accept=".pdf, .docs, .mp3, .mp4, .avi" className="form-control" id="img" name="file[]" multiple/>
                                </div> 
                                <div className="form-group">
                                   <label for="img">Your Colleted Source Videos</label>
@@ -165,6 +168,19 @@ const AddComplain = () => {
                 </Row>
             </Container>
             <Footer/>
+
+            <ToastContainer
+                position="bottom-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={true}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                />
+           <ToastContainer/>
         </div>
     );
 };
