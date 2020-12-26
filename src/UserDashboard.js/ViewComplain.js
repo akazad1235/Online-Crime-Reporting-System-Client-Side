@@ -4,19 +4,57 @@ import Sidebar from './Sidebar';
 import NavbarDesktop from '../Components/Common/NavbarDesktop';
 import Footer from '../Components/Footer';
 import Axios from 'axios';
-import url from '../Helpers/appUrl';
 import { useState } from 'react';
+import message from '../Helpers/response';
+import {ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ViewComplain = () => {
 
     const [complain, setComplain] = useState([])
+    const [checkUser, setCheckUser] = useState({})
+
+    //send code when click
+    const [sendCode, setSendCode] = useState({})
+
+    console.log(sendCode);
+
+      //checking user active or not
+      const id =localStorage.getItem('id');
+      useEffect(()=>{
+        Axios.get(`http://localhost:8000/api/users/${id}`)
+        .then(res => {
+           
+            setCheckUser(res.data.result);
+        })
+    }, [])
+
+  //  console.log(checkUser);
+
+
     
-    useEffect(()=>{
-        Axios.get('http://localhost:8000/api/allComplians')
+    //view complain only own complain
+     useEffect(()=>{
+         Axios.get('http://localhost:8000/api/allComplians')
         .then(res => {
             setComplain(res.data);
         })
     }, [])
+
+    //active account when after click link & mail check
+    const handleClick = ()=>{
+       
+             Axios.put(`http://localhost:8000/api/users/${id}`)
+             .then(res => {
+                setSendCode(res.data.result);
+                message('success', 'Activation code send success, Please Check Your Email');
+             })
+        
+           
+    }
+   // console.log(checkUser.varification_code);
+
+
 
 
     return (
@@ -29,10 +67,18 @@ const ViewComplain = () => {
                     </Col>
                     <Col xl={10} lg={10} md={10} sm={6} xs={12}>
                     <div className="form-container  p-5">
+                        <div className={`alert alert-${checkUser.acc_active == 1 ? 'success':'danger'} alert-dismissible fade show`} role="alert">
+                        <strong>Hello,  {localStorage.getItem('name')}!</strong> {checkUser.acc_active ==1 ? 'Your Account Active':'Your Account Inactive'} <span onClick={() => handleClick()} style={{textDecoration:'underline', cursor:'pointer', color:'blue'}}>{checkUser.acc_active == 1 ? '':'click active account'}</span>
+                        <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
                         <Row>
                             {
                                 complain.map((comp)=>{
                                   return  <Col xl={4}>
+                                      
                                     <Card className="blog-card mr-1 my-2 ">
                                         <button className="btn btn-danger text-capitalize">{comp.status}</button>
                                         <Card.Body>
@@ -53,6 +99,19 @@ const ViewComplain = () => {
                 </Row>
             </Container>
             <Footer/>
+
+            <ToastContainer
+                position="bottom-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={true}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                />
+           <ToastContainer/>
         </div>
     );
 };
