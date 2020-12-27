@@ -17,6 +17,7 @@ import Registration from './Pages/Registration';
 import TestApi from './Pages/TestApi';
 import VerifayToken from './Pages/VerifayToken';
 import AddComplain from './UserDashboard.js/AddComplain';
+import DetailsComplain from './UserDashboard.js/DetailsComplain';
 import HomeUserDashboard from './UserDashboard.js/HomeUserDashboard';
 import UpdateProfile from './UserDashboard.js/UpdateProfile';
 import ViewComplain from './UserDashboard.js/ViewComplain';
@@ -59,6 +60,9 @@ console.log(loggedInUser);
             <PrivateRoute path="/viewComplain">
               <ViewComplain/>
             </PrivateRoute>
+            <Route path="/detailsComplain/:id">
+              <DetailsComplain/>
+            </Route>
             <PrivateRoute path="/viewProfile">
               <ViewProfile/>
             </PrivateRoute>

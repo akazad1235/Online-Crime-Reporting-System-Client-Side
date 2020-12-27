@@ -8,6 +8,8 @@ import { useState } from 'react';
 import message from '../Helpers/response';
 import {ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 const ViewComplain = () => {
 
@@ -85,8 +87,8 @@ const ViewComplain = () => {
                                             <h4 className="product-name-on-card text-center  text-capitalize">{comp.complain_type}</h4>
                                             <p className="product-price-on-card text-justify ">{comp.desc.substr(0, 100)}</p>
                                             <div className="d-flex">
-                                                <button className="btn btn-success">View</button>
-                                                <p className="ml-4 text-warning mt-2 post-date">20 Oct 2020</p>
+                                                <button className="btn btn-success"> <Link className="text-white" to={`/detailsComplain/${comp.id}`}>Details</Link> </button>
+                                                <p className="ml-4 text-secondary mt-2 post-date">{moment(comp.created_at).format('MMM Do YYYY')}</p>
                                             </div>
                                         </Card.Body>
                                      </Card>

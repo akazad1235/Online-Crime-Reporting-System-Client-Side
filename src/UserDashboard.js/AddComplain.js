@@ -80,9 +80,9 @@ const AddComplain = () => {
     return (
         <div>
             <NavbarDesktop/>
-            <Container>
+            <Container className="mt-5">
                 
-                <Row>
+                <Row className="mt-5">
                     <Col xl={2} lg={2} md={2} sm={6} xs={12} style={{backgroundColor:'gray'}}>
                         <Sidebar/>
                     </Col>
