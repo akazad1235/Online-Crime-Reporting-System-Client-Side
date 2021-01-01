@@ -68,8 +68,13 @@ const AddComplain = () => {
         
        Axios.post('http://localhost:8000/api/complain', formData)
        .then(res => {
-        message('success', 'Welcome, User Login Success');
-        reset();
+           console.log(res.data);
+           if(res.data.error){
+                message('error', res.data.error);
+           }else{
+            message('success', res.data.success);
+            reset();
+           }   
        })
        .catch(error =>  {
         message('error', 'Your Complain Faild');
@@ -144,7 +149,7 @@ const AddComplain = () => {
                                </div>
 
                                <div className="form-group">
-                                  <label for="dof">Occurs Place <span className="text-danger">*</span></label>
+                                  <label for="dof">Spot Place <span className="text-danger">*</span></label>
                                   <textarea className="form-control" ref={register} placeholder="Please Write Down Your Occurs Place" name="place" required></textarea>
                                </div>
                                 <div className="form-group">

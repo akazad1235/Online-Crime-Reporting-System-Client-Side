@@ -52,7 +52,7 @@ const About = () => {
                     </Col>
                     <Col xl={3} lg={3} md={3} sm={12} xs={12}>
                         <div className="border rounded ">
-                            <h5 className="my-3 p-2" style={{borderBottom:'2px solid green'}}>Most Of the Criminals</h5>
+                            <h5 className="my-3 p-2" style={{borderBottom:'2px solid green'}}>Wanted Criminals</h5>
                             <Container fluid={true} className="m-0 p-0 overflow-hidden">
                                 <Slider {...settings}>
                             {
