@@ -79,21 +79,21 @@ const ViewComplain = () => {
 
                         <Row>
                             {
-                                // complain.map((comp)=>{
-                                //   return  <Col xl={4}>   
-                                //     <Card className="blog-card mr-1 my-2 ">
-                                //         <button className={`btn btn-${arr2[comp.comp_status]} text-capitalize`}>{arr[comp.comp_status] }</button>
-                                //         <Card.Body>
-                                //             <h4 className="product-name-on-card text-center  text-capitalize">{comp.complain_type}</h4>
-                                //             <p className="product-price-on-card text-justify ">{comp.desc.substr(0, 100)}</p>
-                                //             <div className="d-flex">
-                                //                 <button className="btn btn-success"> <Link className="text-white" to={`/detailsComplain/${comp.id}`}>Details</Link> </button>
-                                //                 <p className="ml-4 text-secondary mt-2 post-date">{moment(comp.created_at).format('MMM Do YYYY')}</p>
-                                //             </div>
-                                //         </Card.Body>
-                                //      </Card>
-                                //     </Col>
-                                // })
+                                complain.map((comp)=>{
+                                  return  <Col xl={4}>   
+                                    <Card className="blog-card mr-1 my-2 ">
+                                        <button className={`btn btn-${arr2[comp.comp_status]} text-capitalize`}>{arr[comp.comp_status] }</button>
+                                        <Card.Body>
+                                            <h4 className="product-name-on-card text-center  text-capitalize">{comp.complain_type}</h4>
+                                            <p className="product-price-on-card text-justify ">{comp.desc.substr(0, 100)}</p>
+                                            <div className="d-flex">
+                                                <button className="btn btn-success"> <Link className="text-white" to={`/detailsComplain/${comp.id}`}>Details</Link> </button>
+                                                <p className="ml-4 text-secondary mt-2 post-date">{moment(comp.created_at).format('MMM Do YYYY')}</p>
+                                            </div>
+                                        </Card.Body>
+                                     </Card>
+                                    </Col>
+                                })
                             }
                         </Row>
                     </div>

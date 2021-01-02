@@ -52,25 +52,6 @@ const ClientFeedback = () => {
         
       <Container>
       <Slider ref={c => (customSlider.current = c)} {  ...settings}>
-            {/* <div className="text-center testimonials-container">
-              <img  className="rounded-circle mx-auto d-block "  src={client1} alt=""/>
-                    <h2>this is azad</h2>
-                    <h5 className="text-danger">Desc</h5>
-                    <p className="px-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat quo totam aspernatur cum nobis odio labore consequatur veniam eaque asperiores.</p>
-             </div>
-             <div className="text-center testimonials-container">
-              <img  className="rounded-circle mx-auto d-block "  src={client1} alt=""/>
-                    <h2>this is azad</h2>
-                    <h5 className="text-danger">Desc</h5>
-                    <p className="px-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat quo totam aspernatur cum nobis odio labore consequatur veniam eaque asperiores.</p>
-             </div>
-           
-             <div className="text-center testimonials-container">
-              <img  className="rounded-circle mx-auto d-block "  src={client1} alt=""/>
-                    <h2>this is azad</h2>
-                    <h5 className="text-danger">Desc</h5>
-                    <p className="px-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat quo totam aspernatur cum nobis odio labore consequatur veniam eaque asperiores.</p>
-             </div> */}
              {
                feedback.map((feedback) => {
                 return<div className="text-center testimonials-container">

@@ -41,14 +41,13 @@ const DetailsComplain = () => {
                     </Col>
                     <Col xl={10} lg={10} md={10} sm={6} xs={12}>
                         <div className="avidance">
-                            <label><h3>Your Complain Name</h3></label>
+                            <label><h4>Complain Name</h4></label>
                             <p>{detailsComplain.complain_type}</p>
-                            <label><h3>Your Complain Description</h3></label>
+                            <label><h4> Complain Description</h4></label>
                             <p>{detailsComplain.desc}</p>
-                            <label className="text-weight-bold"><h3>Your Complain Place</h3></label>
+                            <label className="text-weight-bold"><h4> Complain Place</h4></label>
                             <p>{detailsComplain.place}</p>
-                            <label className="text-weight-bold"><h3>Avidance Image</h3></label><br/>
-                            <img src={`${appUrl.baseUrl}/admin/images/complain/${detailsComplain.image}`} alt="imge" />
+                            <label className="text-weight-bold"><h4>Avidance File</h4></label><br/>
                             <div className="border" >
                                 {
                                    avidance.map((filltt) => {
