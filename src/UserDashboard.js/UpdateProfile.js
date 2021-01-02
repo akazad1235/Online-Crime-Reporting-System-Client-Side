@@ -95,7 +95,7 @@ const UpdateProfile = () => {
                         <h3 className="mb-4">User Update</h3>
                         <form onSubmit={handleSubmit(onSubmit)}>
                                <div className="form-group">
-                                  <label for="name">Name</label>
+                                  <label for="name">Name<span className="text-danger">*</span></label>
                                  <input type="text" className="form-control" id="name" name="name" onChange={handleChange} value={userInfo.name} placeholder="Enter Your Name" ref={register}/>
                                </div> 
                                <div className="form-group">
