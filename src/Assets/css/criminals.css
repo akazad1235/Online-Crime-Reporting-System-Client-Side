@@ -1,0 +1,13 @@
+figure{
+    overflow: hidden;
+}
+.criminal-details-image img{
+    width:50%;
+    height: 200px;
+    transform:scale(1);
+    transition: 0.5s ease-in-out;
+}
+.criminal-details-image img:hover{
+    transform:scale(1.20);
+    cursor: pointer;
+}

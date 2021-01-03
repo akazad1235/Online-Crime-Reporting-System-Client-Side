@@ -17,23 +17,36 @@ const Registration = () => {
     const locationLogin =  useHistory();
     const {register, handleSubmit, errors, reset } =useForm();
     const onSubmit = (data) => {
-        const newRegisters = {...data};
-        axios.post('http://localhost:8000/api/register',newRegisters)
+
+         const formData = new FormData()
+           
+          formData.append('name', data.name);
+          formData.append('email', data.email);
+          formData.append('gender', data.gender);
+          formData.append('birth_day', data.birth_day); 
+          formData.append('image', data.image[0]);
+          formData.append('password', data.password);
+       /// const newRegisters = {...data};
+
+
+        axios.post('http://localhost:8000/api/register',formData)
         .then(function (res) {
-           reset()
+            console.log(res.data);
+           
            if(res.data.success){
                 
                 setTimeout(function(){
                     locationLogin.push("/login");
                 },3600)
                 message('success', res.data.success);
+                reset()
            }else{
             message('warning', res.data.warning);
            }
        })
        
        .catch(function (error) {
-        message('danger', 'User Registration Faild');
+        message('error', 'User Registration Faild');
        }) 
 
     }
@@ -46,7 +59,7 @@ const Registration = () => {
                     <Col lg={8} className="m-auto">
                         <div className=" form-container my-5 p-5">
                         <h3 className="mb-4">User Registration </h3>
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
                                <div className="form-group">
                                   <label for="name">Name<span className="text-danger">*</span></label>
                                  <input type="text" className="form-control" id="name" name="name" placeholder="Enter Your Name" ref={register} required/>
@@ -66,6 +79,10 @@ const Registration = () => {
                                   <label for="dof">Date of Birth<span className="text-danger">*</span></label>
                                   <input type="date" className="form-control" id="dof" name="birth_day" ref={register} required/>
                                </div>
+                               <div className="form-group">
+                                  <label for="email-id" >Image<span className="text-danger">*</span></label>
+                                 <input type="file" className="form-control" id="email-id" name="image" ref={register} required/>
+                               </div> 
                                <div className="form-group">
                                   <label for="pass">Password<span className="text-danger">*</span></label>
                                  <input type="password" className="form-control" id="pass" name="password" placeholder="password minimum 8 character" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  ref={register} title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"  required/>

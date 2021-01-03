@@ -6,34 +6,8 @@ import Comments from './Comments';
 
 const Details = () => {
 
-    const notify = () => {
-        toast.success('🦄 Wow so easy!', {
-        position: "bottom-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        });
-    }
     return (
         <>
-        <ToastContainer
-         position="bottom-center"
-         autoClose={5000}
-         hideProgressBar={false}
-         newestOnTop={false}
-         closeOnClick
-         rtl={true}
-         pauseOnFocusLoss
-         draggable
-         pauseOnHover
-        />
-        {/* Same as */}
-
-        <ToastContainer />
-        <button onClick={notify}>Notify !</button>
                         <img className="img-fluid mt-5" src="https://empowerms.org/wp-content/uploads/2019/10/images.jpeg" alt=""/>
                         <div className="d-flex my-3 ">
                             <p><span className="text-danger"><i  class="fas fa-clock"></i></span> 20 Nov 2020</p>

@@ -11,6 +11,8 @@ import BlogDetails from './Pages/Blogs/BlogDetails';
 import blogDetails from './Pages/Blogs/BlogDetails';
 import BlogList from './Pages/Blogs/BlogList';
 import HomeBlog from './Pages/Blogs/HomeBlog';
+import CriminalDetails from './Pages/Criminals/CriminalDetails';
+import Criminals from './Pages/Criminals/Criminals';
 import HomePage from './Pages/HomePage';
 import Login from './Pages/Login';
 import Registration from './Pages/Registration';
@@ -73,6 +75,12 @@ console.log(loggedInUser);
             <PrivateRoute path="/feedback">
               <Feedback/>
             </PrivateRoute>
+           <PrivateRoute path="/criminals/:id">
+              <Criminals/>
+            </PrivateRoute>
+            {/*  <PrivateRoute path="/CriminalDetails">
+              <CriminalDetails/>
+            </PrivateRoute> */}
             <Route path="/blog">
               <HomeBlog/>
             </Route>

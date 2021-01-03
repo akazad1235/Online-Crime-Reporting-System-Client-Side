@@ -5,11 +5,41 @@
     display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 60%;
-  height:110px;
+  width: 90%;
+  height:150px;
   border-radius: 50%;
+}
+.slider-img:hover{
+    border:1px solid #dddd;
+    cursor: pointer;
 }
 .fwidth{
     margin: 0 auto;
     padding: 0px;
 }
+
+.crm-image {
+
+    width: 90%;
+    height:150px;
+    border-radius: 50%;
+    height: auto;
+    cursor: pointer;
+}
+
+figure{
+    overflow: hidden;
+}
+.criminal-image img{
+    width:90%;
+    height: 150px;
+    transform:scale(1);
+    transition: 0.5s ease-in-out;
+}
+.criminal-image img:hover{
+    transform:scale(1.2)
+}
+
+
+
+

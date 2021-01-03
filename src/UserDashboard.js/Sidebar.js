@@ -1,17 +1,34 @@
+import Axios from 'axios';
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import appUrl from '../Helpers/appUrl';
 
 const Sidebar = () => {
 
+    const[uesrProfile, setUserProfile] = useState({});
 
+    const getUsreId = localStorage.getItem('id');
+    useEffect(()=>{
+        Axios.get(`http://localhost:8000/api/register/${getUsreId}`)
+        .then((res) => {
+            setUserProfile(res.data)
+        })
+        .catch((error)=> {
+            console.log(error);
+        })
+    },[])
+
+console.log(uesrProfile);
     return (
         <div className="sidebar my-5">
                     <div className="profile m-0 p-0 ">
                         <Card className="profile m-0 p-0">
-                            <img src="http://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg" alt=""/>
+                            <img  src={`${appUrl.baseUrl}/admin/images/profile/${uesrProfile.image}`} alt=""/>
                             <Card.Body>
-    <h4 className="text-center mb-3">{localStorage.getItem('name')}</h4>
+                                 <h4 className="text-center mb-3">{uesrProfile.name}</h4>
                                 <div className="d-flex ">
                                     <button className="btn btn-success mr-1"><Link to="/viewProfile">View</Link> </button>
                                     <button className="btn btn-success mr-1"><Link to="/updateProfile">Edit</Link> </button>
