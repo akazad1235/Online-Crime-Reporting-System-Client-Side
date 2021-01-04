@@ -18,6 +18,7 @@ import Login from './Pages/Login';
 import Registration from './Pages/Registration';
 import TestApi from './Pages/TestApi';
 import VerifayToken from './Pages/VerifayToken';
+import VerificationCode from './Pages/VerificationCode';
 import AddComplain from './UserDashboard.js/AddComplain';
 import DetailsComplain from './UserDashboard.js/DetailsComplain';
 import Feedback from './UserDashboard.js/Feedback';
@@ -89,6 +90,9 @@ console.log(loggedInUser);
             </Route>
             <Route path="/testApi">
               <TestApi/>
+            </Route>
+            <Route path="/verifyCode">
+              <VerificationCode/>
             </Route>
             <Route path="/verityToken">
               <VerifayToken/>

@@ -10,12 +10,15 @@ import message from '../Helpers/response';
 import NavbarDesktop from '../Components/Common/NavbarDesktop';
 import Footer from '../Components/Footer';
 import { useHistory } from 'react-router-dom';
+import { useState } from 'react';
 
 
 const Registration = () => {
 
     const locationLogin =  useHistory();
     const {register, handleSubmit, errors, reset } =useForm();
+
+
     const onSubmit = (data) => {
 
          const formData = new FormData()
@@ -25,6 +28,7 @@ const Registration = () => {
           formData.append('gender', data.gender);
           formData.append('birth_day', data.birth_day); 
           formData.append('image', data.image[0]);
+          formData.append('varification_code', Math.floor(100000 + Math.random() * 900000));
           formData.append('password', data.password);
        /// const newRegisters = {...data};
 
@@ -36,7 +40,7 @@ const Registration = () => {
            if(res.data.success){
                 
                 setTimeout(function(){
-                    locationLogin.push("/login");
+                    locationLogin.push("/verifyCode");
                 },3600)
                 message('success', res.data.success);
                 reset()
@@ -50,6 +54,39 @@ const Registration = () => {
        }) 
 
     }
+    const[checkNid, setCheckNid] = useState()
+    const handleNid = (e) =>{
+        //setCheckNid({[e.target.name]:e.target.value})
+        const nidData = new FormData()
+       
+       var nid = e.target.value;
+       
+       nidData.append('nid', nid);
+
+       axios.post('http://localhost:8000/api/register', nidData)
+       .then((res)=>{
+           console.log(res.data);
+           let getId = document.getElementById('msg');
+           
+           if(res.data.result == 1){
+                getId.innerHTML = 'Well your nid card no is valid';
+                getId.className='text-success'
+           }else{
+            getId.innerHTML = 'Sorry, your nid card no is invalid';
+            getId.className='text-danger'
+            e.target.value =''
+           }
+
+       })
+       .catch((error)=>{
+           console.log(error);
+       })
+   
+    }
+    console.log(checkNid);
+  //  let sendNid = checkNid.nid;
+    
+        
 
     return (
         <div>
@@ -63,6 +100,11 @@ const Registration = () => {
                                <div className="form-group">
                                   <label for="name">Name<span className="text-danger">*</span></label>
                                  <input type="text" className="form-control" id="name" name="name" placeholder="Enter Your Name" ref={register} required/>
+                               </div> 
+                               <div className="form-group">
+                                  <label for="email-id" >nid<span className="text-danger">*</span></label>
+                                 <input type="text" className="form-control" id="email-id" name="nid" onBlur={handleNid} placeholder="Enter Your nid" required/>
+                                 <p id="msg"></p>
                                </div> 
                                <div className="form-group">
                                   <label for="email-id" >Email<span className="text-danger">*</span></label>
