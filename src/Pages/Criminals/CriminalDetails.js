@@ -71,7 +71,7 @@ const Details = () => {
         let image = document.getElementById('childId');
         let createImg = document.createElement('img');
         image.appendChild(createImg);
-        createImg.setAttribute('src','https://denebjs.netlify.app/static/media/thumb_1.eaa26b0e.jpg');
+        createImg.setAttribute('src', `http://localhost:8000/admin/images/criminals/${DetailsCriminals.image}`);
         createImg.setAttribute('alt','image alt');
         createImg.className='img-fluid rounded';
         createImg.style.height= '100px'
