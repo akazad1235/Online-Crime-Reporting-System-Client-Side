@@ -10,10 +10,13 @@ import { useForm } from 'react-hook-form';
 import {ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import message from '../Helpers/response';
+import { useHistory } from 'react-router-dom';
 
 const AddComplain = () => {
     const [stations, setStation] = useState([])
    const [file, setFile] = useState(null);
+
+   const location = useHistory();
 
     //console.log(file);
 
@@ -69,6 +72,7 @@ const AddComplain = () => {
           // console.log(res.data);
            if(res.data.error){
                 message('error', res.data.error);
+                location.push('/viewComplain')
            }else{
             message('success', res.data.success);
             reset();

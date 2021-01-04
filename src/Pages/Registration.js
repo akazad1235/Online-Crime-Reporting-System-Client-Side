@@ -25,6 +25,7 @@ const Registration = () => {
            
           formData.append('name', data.name);
           formData.append('email', data.email);
+          formData.append('nid_no', data.nid_no);
           formData.append('gender', data.gender);
           formData.append('birth_day', data.birth_day); 
           formData.append('image', data.image[0]);
@@ -96,8 +97,8 @@ const Registration = () => {
                                  <input type="text" className="form-control" id="name" name="name" placeholder="Enter Your Name" ref={register} required/>
                                </div> 
                                <div className="form-group">
-                                  <label for="email-id" >NID Number<span className="text-danger">*</span></label>
-                                 <input type="text" className="form-control" id="email-id" name="nid" onBlur={handleNid} placeholder="Enter Your nid" required/>
+                                  <label for="nid" >NID Number<span className="text-danger">*</span></label>
+                                 <input type="text" className="form-control" id="nid" name="nid_no" onBlur={handleNid} placeholder="Enter Your nid" ref={register} required/>
                                  <p id="msg"></p>
                                </div> 
                                <div className="form-group">
