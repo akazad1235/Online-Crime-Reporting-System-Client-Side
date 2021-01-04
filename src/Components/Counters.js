@@ -56,7 +56,7 @@ const Counters = () => {
                     </CountUp>
                 </Col>
                     <Col xl={3} lg={3} md={3} >
-                        <h4>Done Complian</h4>
+                        <h4>Solved Complain</h4>
                         <i class="fas fa-clipboard-check"></i>
                         <CountUp end={counter.done} redraw={false}>
                         {({ countUpRef,  }) => (
@@ -67,7 +67,7 @@ const Counters = () => {
                     </CountUp>
                     </Col>
                     <Col xl={3} lg={3} md={3} >
-                        <h4>Panding Complian</h4>
+                        <h4>Pending Complain</h4>
                         <i class="fas fa-chalkboard-teacher"></i>
                         <CountUp end={counter.pending} redraw={true}>
                         {({ countUpRef,  }) => (

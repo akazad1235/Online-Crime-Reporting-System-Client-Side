@@ -32,16 +32,14 @@ const Registration = () => {
           formData.append('password', data.password);
        /// const newRegisters = {...data};
 
-
+        //user registration
         axios.post('http://localhost:8000/api/register',formData)
         .then(function (res) {
             console.log(res.data);
-           
-           if(res.data.success){
-                
+           if(res.data.success){ 
                 setTimeout(function(){
                     locationLogin.push("/verifyCode");
-                },3600)
+                },15000)
                 message('success', res.data.success);
                 reset()
            }else{
@@ -54,13 +52,11 @@ const Registration = () => {
        }) 
 
     }
-    const[checkNid, setCheckNid] = useState()
+
+    //Check User NId Number Valid or Invalid before submit button
     const handleNid = (e) =>{
-        //setCheckNid({[e.target.name]:e.target.value})
-        const nidData = new FormData()
-       
+        const nidData = new FormData() 
        var nid = e.target.value;
-       
        nidData.append('nid', nid);
 
        axios.post('http://localhost:8000/api/register', nidData)
@@ -69,22 +65,20 @@ const Registration = () => {
            let getId = document.getElementById('msg');
            
            if(res.data.result == 1){
-                getId.innerHTML = 'Well your nid card no is valid';
+                getId.innerHTML = 'Your NID number is valid';
                 getId.className='text-success'
            }else{
-            getId.innerHTML = 'Sorry, your nid card no is invalid';
+            getId.innerHTML = 'Sorry, Your NID number is invalid';
             getId.className='text-danger'
             e.target.value =''
            }
-
        })
        .catch((error)=>{
            console.log(error);
        })
    
     }
-    console.log(checkNid);
-  //  let sendNid = checkNid.nid;
+
     
         
 
@@ -102,7 +96,7 @@ const Registration = () => {
                                  <input type="text" className="form-control" id="name" name="name" placeholder="Enter Your Name" ref={register} required/>
                                </div> 
                                <div className="form-group">
-                                  <label for="email-id" >nid<span className="text-danger">*</span></label>
+                                  <label for="email-id" >NID Number<span className="text-danger">*</span></label>
                                  <input type="text" className="form-control" id="email-id" name="nid" onBlur={handleNid} placeholder="Enter Your nid" required/>
                                  <p id="msg"></p>
                                </div> 
