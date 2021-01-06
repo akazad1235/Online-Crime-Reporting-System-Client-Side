@@ -16,7 +16,7 @@ const DetailsComplain = () => {
     const [detailsComplain, setDetailsComplain] = useState({})
     const [avidance, setAvidance] = useState([])
     useEffect(()=>{ 
-        Axios.get(`http://localhost:8000/api/complain/${id}`)
+        Axios.get(`${appUrl.baseUrl}/api/complain/${id}`)
        .then(res => {
         setDetailsComplain(res.data.result);
         setAvidance(res.data.convertFile);
@@ -43,19 +43,19 @@ const DetailsComplain = () => {
                         <div className="avidance">
                             <div class="row my-1  border-bottom">
                                 <div class="col-md-3 font-weight-bold  align-self-center text-dark">Complain Name</div>
-                                <div class="col-md-8">{detailsComplain.complain_type}</div>
+                                <div class="col-md-8 p-3 text-capitalize">{detailsComplain.complain_type}</div>
                             </div>
                             <div class="row my-1  border-bottom">
                                 <div class="col-md-3 font-weight-bold  align-self-center text-dark">Complain Description</div>
-                                <div class="col-md-8">{detailsComplain.desc}</div>
+                                <div class="col-md-8 p-3 ">{detailsComplain.desc}</div>
                             </div>
                             <div class="row my-1  border-bottom">
                                 <div class="col-md-3 font-weight-bold  align-self-center text-dark">Complain Place</div>
-                                <div class="col-md-8">{detailsComplain.place}</div>
+                                <div class="col-md-8 p-3 ">{detailsComplain.place}</div>
                             </div>
                             <div class="row my-1  border-bottom">
                                 <div class="col-md-3 font-weight-bold  align-self-center text-dark">Evidence Imge</div>
-                                <div class="col-md-8">
+                                <div class="col-md-8 ">
                                 {
                                    avidance.map((filltt) => {
                                     if(filltt.split('.').pop() =='jpg'){

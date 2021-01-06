@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import message from '../Helpers/response';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import appUrl from '../Helpers/appUrl';
 
 const Feedback = () => {
 
@@ -24,7 +25,7 @@ const Feedback = () => {
            formData.append('reg_id', id);
         
 
-            Axios.post('http://localhost:8000/api/feedback', formData)
+            Axios.post(`${appUrl.baseUrl}/api/feedback`, formData)
        .then(res => {
         //   console.log(res.data);
            if(res.data.error){
@@ -55,19 +56,19 @@ const Feedback = () => {
                     <Col xl={10} lg={10} md={10} sm={6} xs={12} >
 
                         <div className=" form-container my-5 p-5">
-                        <h3 className="mb-4">User Update</h3>
+                        <h3 className="mb-4 text-info">Service Feedback</h3>
                         <form onSubmit={handleSubmit(onSubmit)}>
                                <div className="form-group">
-                                  <label for="name">Profession<span className="text-danger">*</span></label>
+                                  <label for="name" className="text-success">Profession<span className="text-danger">*</span></label>
                                  <input type="text" className="form-control" id="name" name="profession" placeholder="Enter Your Profession Name" ref={register}/>
                                </div> 
                                <div className="form-group">
-                                  <label for="dof">Description<span className="text-danger">*</span></label>
+                                  <label for="dof" className="text-success">Description<span className="text-danger">*</span></label>
                                   <textarea className="form-control" ref={register} name="desc"  placeholder="Please Write Down Your Description" ></textarea>
                                </div>
                                <div className="form-group">
                                   <label for="pass"></label>
-                                <input type="submit" className=" btn btn-success"/>
+                                <input type="submit" className=" btn btn-danger"/>
                                </div>
                         </form>
                         </div>

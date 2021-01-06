@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import moment from 'moment';
 import { Link, useHistory, useParams } from 'react-router-dom';
+import appUrl from '../../Helpers/appUrl';
 
 const CriminalSidebar = () => {
   //  const{id} = useParams();
@@ -13,7 +14,7 @@ const CriminalSidebar = () => {
     const [criminalPostList, setCriminalPostList] = useState([]);
 
     useEffect(()=>{
-        Axios.get('http://localhost:8000/api/criminals')
+        Axios.get(`${appUrl.baseUrl}/api/criminals`)
         .then((res)=>{
             setCriminalPostList(res.data.result);
             
@@ -33,7 +34,7 @@ const CriminalSidebar = () => {
                         <div className="image">
                         <div className="zoom-in">
                         <div className="img-figure">
-                                <img className="img-fluid " src={`http://localhost:8000/admin/images/criminals/${crmList.image}`} alt="" />
+                                <img className="img-fluid " src={`${appUrl.baseUrl}/admin/images/criminals/${crmList.image}`} alt="" />
                         </div>
                         </div>
                         </div>

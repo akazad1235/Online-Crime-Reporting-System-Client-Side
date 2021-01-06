@@ -58,9 +58,9 @@ console.log(loggedInUser);
             <Route path="/userDashboard">
               <HomeUserDashboard/>
             </Route>
-            <Route path="/addComplain">
+            <PrivateRoute path="/addComplain">
               <AddComplain/>
-            </Route>
+            </PrivateRoute>
             <PrivateRoute path="/viewComplain">
               <ViewComplain/>
             </PrivateRoute>

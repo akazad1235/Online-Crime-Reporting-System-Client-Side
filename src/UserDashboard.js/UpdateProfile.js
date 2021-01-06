@@ -79,12 +79,11 @@ const UpdateProfile = () => {
 
 
     }
-    
-
+  
     return (
         <div>
             <NavbarDesktop/>
-            <Container>
+            <Container className="mt-5">
                 <Row>
                 <Col xl={2} lg={2} md={2} sm={6} xs={12} style={{backgroundColor:'gray'}}>
                         <Sidebar/>
@@ -92,35 +91,36 @@ const UpdateProfile = () => {
                     <Col xl={10} lg={10} md={10} sm={6} xs={12} className="m-auto">
 
                         <div className=" form-container my-5 p-5">
-                        <h3 className="mb-4">User Update</h3>
+                        <h3 className="text-info mb-3">Update Your Profile</h3>
                         <form onSubmit={handleSubmit(onSubmit)}>
                                <div className="form-group">
-                                  <label for="name">Name<span className="text-danger">*</span></label>
-                                 <input type="text" className="form-control" id="name" name="name" onChange={handleChange} value={userInfo.name} placeholder="Enter Your Name" ref={register}/>
+                                  <label for="name" className="text-success">Name</label>
+                                  <input type="text"  className="form-control" id="azad" name="name" onChange={handleChange} placeholder="Enter Your Name" ref={register}/>
+                               
                                </div> 
                                <div className="form-group">
-                                  <label for="name">Phone Number</label>
+                                  <label for="name" className="text-success">Phone Number</label>
                                  <input type="text" className="form-control" id="name" name="phone" onChange={handleChange}  value={userInfo.phone} placeholder="Enter Your phone" ref={register}/>
                                </div> 
                                <div className="form-group">
-                                  <label for="name">NID Number</label>
-                                 <input type="text" className="form-control" id="name" name="nid" onChange={handleChange}  value={userInfo.nid} placeholder="Enter Your phone" ref={register}/>
+                                  <label for="name" className="text-success">NID Number</label>
+                                 <input type="text" disabled className="form-control" id="name" name="nid" onChange={handleChange}  value={userInfo.nid} placeholder="Enter Your phone" ref={register}/>
                                </div>
-                               <div className="form-group" ref={register} onChange={handleChange} >
+                               {/* <div className="form-group" ref={register} onChange={handleChange} >
                                   <label for="phone-number">Gender</label><br/>
                                   <input type="radio" className="m-2" name="gender" value="male"    id="male" checked={userInfo.gender == 'male' ?  'checked':''} ref={register} />
                                   <lebel for="male">Male</lebel> 
                                   <input type="radio" className="m-2" name="gender" value="female"   id="female"  checked={userInfo.gender == 'female' ?  'checked':''} ref={register}/> 
                                   <lebel for="female">Female</lebel> 
-                               </div>
+                               </div> */}
                              
                                <div className="form-group">
-                                  <label for="dof">Date of Birth</label>
+                                  <label for="dof" className="text-success">Date of Birth</label>
                                   <input type="date" className="form-control" id="dof" onChange={handleChange}  name="birth_day" value={userInfo.birth_day}  ref={register}/>
                                </div>
                                <div className="form-group">
-                                  <label for="dof">Address<span className="text-danger">*</span></label>
-                                  <textarea className="form-control" ref={register} name="address"  placeholder="Please Write Down Your Occurs Place" onChange={handleChange}  value={userInfo.address}></textarea>
+                                  <label for="dof" className="text-success">Address</label>
+                                  <textarea className="form-control" ref={register} name="address"  placeholder="Enter Your Address" onChange={handleChange}  value={userInfo.address}></textarea>
                                </div>
                                {/* <div className="form-group">
                                   <label for="img">Profile Image <span className="text-danger">*</span></label>
@@ -130,7 +130,7 @@ const UpdateProfile = () => {
                                <div className="form-group">
                                   <label for="pass"></label>
                                  
-                                <input type="submit" className=" btn btn-success"/>
+                                <input type="submit" className=" btn btn-danger" value="Update"/>
                                </div>
                         </form>
                         </div>

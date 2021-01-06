@@ -10,6 +10,7 @@ import {ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+import appUrl from '../Helpers/appUrl';
 
 const ViewComplain = () => {
 
@@ -24,7 +25,7 @@ const ViewComplain = () => {
       //checking user active or not
       const id =localStorage.getItem('id');
       useEffect(()=>{
-        Axios.get(`http://localhost:8000/api/users/${id}`)
+        Axios.get(`${appUrl.baseUrl}/api/users/${id}`)
         .then(res => {
            
             setCheckUser(res.data.result);
@@ -38,7 +39,7 @@ const ViewComplain = () => {
     //view complain only own complain
     const LoggedId = localStorage.getItem('id');
      useEffect(()=>{
-         Axios.get(`http://localhost:8000/api/complain/${LoggedId}`)
+         Axios.get(`${appUrl.baseUrl}/api/complain/${LoggedId}`)
         .then(res => {
             setComplain(res.data.result);
         })
@@ -47,7 +48,7 @@ const ViewComplain = () => {
     //active account when after click link & mail check
     const handleClick = ()=>{
        
-             Axios.put(`http://localhost:8000/api/users/${id}`)
+             Axios.put(`${appUrl.baseUrl}/api/users/${id}`)
              .then(res => {
                 setSendCode(res.data.result);
                 message('success', 'Activation code send success, Please Check Your Email');

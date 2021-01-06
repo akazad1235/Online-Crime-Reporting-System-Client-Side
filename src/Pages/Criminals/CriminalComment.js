@@ -1,13 +1,14 @@
 import Axios from 'axios';
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
+import appUrl from '../../Helpers/appUrl';
 
 const CriminalComment = () => {
     const {id} = useParams();
     console.log(id);
     document.onload = function(){
 
-        Axios.get(`http://localhost:8000/api/comments/${id}`)
+        Axios.get(`${appUrl.baseUrl}/api/comments/${id}`)
         .then((res)=>{
             console.log(res.data);
         })

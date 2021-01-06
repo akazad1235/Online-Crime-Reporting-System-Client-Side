@@ -15,7 +15,7 @@ const Details = () => {
     const [comment, setComment] = useState({});  
     const [adminName, setAdminName] = useState({});  
     useEffect(()=>{
-        Axios.get(`http://localhost:8000/api/criminals/${id}`)
+        Axios.get(`${appUrl.baseUrl}/api/criminals/${id}`)
         .then((res)=>{
             setDetailsCriminals(res.data.result);
             setAdminName(res.data.admin);
@@ -31,7 +31,7 @@ const Details = () => {
           
 
             useEffect(()=>{
-                Axios.get(`http://localhost:8000/api/comments/${id}`)
+                Axios.get(`${appUrl.baseUrl}/api/comments/${id}`)
                 .then((res)=>{
                     console.log(res.data);
                     setComment(res.data.result);
@@ -71,7 +71,7 @@ const Details = () => {
         let image = document.getElementById('childId');
         let createImg = document.createElement('img');
         image.appendChild(createImg);
-        createImg.setAttribute('src', `http://localhost:8000/admin/images/criminals/${DetailsCriminals.image}`);
+        createImg.setAttribute('src', `${appUrl.baseUrl}admin/images/criminals/${DetailsCriminals.image}`);
         createImg.setAttribute('alt','image alt');
         createImg.className='img-fluid rounded';
         createImg.style.height= '100px'

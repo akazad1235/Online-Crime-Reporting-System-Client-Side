@@ -17,7 +17,7 @@ const ClientFeedback = () => {
     const customSlider = useRef();
 
     useEffect(()=>{
-      Axios.get('http://localhost:8000/api/feedback')
+      Axios.get(`${appUrl.baseUrl}/api/feedback`)
       .then(res =>{
         console.log(res.data);
         setFeeddback(res.data);
@@ -58,11 +58,10 @@ const ClientFeedback = () => {
                 return<div className="text-center testimonials-container">
                 <img  className="rounded-circle mx-auto d-block " src={`${appUrl.baseUrl}/admin/images/profile/${feedback.image}`} alt=""/>
                       <h2>{feedback.name}</h2>
-                      <h5 className="text-danger p-2 flex-grow-1 ">{feedback.profession}</h5>
                       <p className="px-5">{feedback.desc.substr(0,100)}</p>
                       <div className="d-flex justify-content-center">
-                      <p className="text-primary mr-5">{moment(feedback.created_at).startOf('second').fromNow()}</p>
-                     <Button className="btn btn-danger btn-sm m-1"><Link to="" className="text-white">More</Link></Button>
+                      {/* <p className="text-primary mr-5">{moment(feedback.created_at).startOf('second').fromNow()}</p> */}
+                     {/* <Button className="btn btn-danger btn-sm m-1"><Link to="" className="text-white">More</Link></Button> */}
                       </div>
                </div>
                })

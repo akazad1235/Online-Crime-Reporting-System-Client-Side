@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import CountUp from 'react-countup';
 import { useCountUp } from 'react-countup';
+import appUrl from '../Helpers/appUrl';
 import ReactVisibilitySensor from 'react-visibility-sensor';
 
 
@@ -20,7 +21,7 @@ const Counters = () => {
     });
 
   useEffect(()=>{
-      Axios.get('http://localhost:8000/api/complain')
+      Axios.get(`${appUrl.baseUrl}/api/complain`)
       .then(res =>{
         setCounter({
             totalUser:res.data.totalUser,
@@ -79,7 +80,7 @@ const Counters = () => {
                     </Col>
                     <Col xl={3} lg={3} md={3} >
                         <h4>Total User</h4>
-                        <i class="fas fa-user-plus"></i>
+                        <i class="far fa-bible"></i>
                         <CountUp end={counter.totalUser} redraw={true}>
                         {({ countUpRef,  }) => (
                             <ReactVisibilitySensor  delayedCall>

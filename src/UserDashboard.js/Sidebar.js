@@ -12,7 +12,7 @@ const Sidebar = () => {
 
     const getUsreId = localStorage.getItem('id');
     useEffect(()=>{
-        Axios.get(`http://localhost:8000/api/register/${getUsreId}`)
+        Axios.get(`${appUrl.baseUrl}/api/register/${getUsreId}`)
         .then((res) => {
             setUserProfile(res.data)
         })
@@ -30,8 +30,8 @@ console.log(uesrProfile);
                             <Card.Body>
                                  <h4 className="text-center mb-3">{uesrProfile.name}</h4>
                                 <div className="d-flex ">
-                                    <button className="btn btn-success mr-1"><Link to="/viewProfile">View</Link> </button>
-                                    <button className="btn btn-success mr-1"><Link to="/updateProfile">Edit</Link> </button>
+                                    <button className="btn btn-danger mr-1"><Link to="/viewProfile" className='text-white'>View</Link> </button>
+                                    <button className="btn btn-danger mr-1"><Link to="/updateProfile" className='text-white'>Edit</Link> </button>
                                 </div>
                             </Card.Body>
                         </Card> 
@@ -40,7 +40,7 @@ console.log(uesrProfile);
            
            <li className="text-white my-2"><i class="far fa-plus-square"></i><Link to="/addComplain" className="p-3 text-white">Add Complain</Link></li>
            <li className="text-white my-2"><i class="fas fa-list"></i><Link to="/viewComplain" className="p-3 text-white">View Complain</Link></li>
-           <li className="text-white my-2"><i class="far fa-user-circle"></i><Link to="/userProfile" className="p-3 text-white">User Profile </Link></li>
+           <li className="text-white my-2"><i class="far fa-user-circle"></i><Link to="/viewProfile" className="p-3 text-white">User Profile </Link></li>
            <li className="text-white my-2"><i class="fas fa-plus-circle"></i><Link to="/feedback" className="p-3 text-white">Feedback</Link></li> 
         </div>
     );

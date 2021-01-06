@@ -11,6 +11,7 @@ import {ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import message from '../Helpers/response';
 import { useHistory } from 'react-router-dom';
+import appUrl from '../Helpers/appUrl';
 
 const AddComplain = () => {
     const [stations, setStation] = useState([])
@@ -28,7 +29,7 @@ const AddComplain = () => {
     //handle hook form
     const {register, handleSubmit, errors, reset} =useForm();
     useEffect(()=>{
-        Axios.get('http://localhost:8000/addComplian')
+        Axios.get(`${appUrl.baseUrl}/addComplian`)
         .then(res => {
             setStation(res.data);
         })
@@ -67,14 +68,14 @@ const AddComplain = () => {
        // const data = getCompData.append(image);
        
         
-       Axios.post('http://localhost:8000/api/complain', formData)
+       Axios.post(`${appUrl.baseUrl}/api/complain`, formData)
        .then(res => {
           // console.log(res.data);
            if(res.data.error){
                 message('error', res.data.error);
-                location.push('/viewComplain')
            }else{
             message('success', res.data.success);
+            location.push('/viewComplain')
             reset();
            }   
        })
@@ -133,7 +134,7 @@ const AddComplain = () => {
 
                                <div className="form-group">
                                   <label for="dof">Spot Place <span className="text-danger">*</span></label>
-                                  <textarea className="form-control" ref={register} placeholder="Please Write Down Your Spot Place" name="place" required></textarea>
+                                  <textarea className="form-control" ref={register} placeholder="Please Write Down Your Crime Spot Place" name="place" required></textarea>
                                </div>
                                 {/* <div className="form-group">
                                   <label for="img">Your Colleted Source Image <span className="text-danger">*</span></label>

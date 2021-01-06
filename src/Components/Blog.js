@@ -3,12 +3,6 @@ import React from 'react';
 import {Row, Col, Card, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
-import blog1 from '../../src/Assets/images/blogs/blog1.jpg';
-import blog2 from '../../src/Assets/images/blogs/blog2.jpg';
-import blog3 from '../../src/Assets/images/blogs/blog3.jpg';
-import blog4 from '../../src/Assets/images/blogs/blog4.jpg';
-import blog5 from '../../src/Assets/images/blogs/blog5.jpg';
-import blog6 from '../../src/Assets/images/blogs/blog6.jpg';
 
 const Blog = () => {
    
@@ -20,7 +14,7 @@ const Blog = () => {
 
                     <Col lg={4} xl={4} md={6} sm={12} xm={12}>
                         <Card  className="my-2">
-                            <Card.Img variant="top" src="https://livedemo00.template-help.com/wt_prod-19259/images/landing-it-company-7-570x415.jpg" />
+                            <Card.Img variant="top" src="https://empowerms.org/wp-content/uploads/2019/10/images.jpeg" />
                             <Card.Body>
                                 <div className="d-flex my-3">
                                     <h6 className="mr-auto badge badge-danger">E-crime</h6>
@@ -40,7 +34,7 @@ const Blog = () => {
                     </Col>
                     <Col lg={4} xl={4} md={6} sm={12} xm={12}>
                         <Card  className="my-2">
-                            <Card.Img variant="top" src="https://livedemo00.template-help.com/wt_prod-19259/images/landing-it-company-7-570x415.jpg" />
+                            <Card.Img variant="top" src="https://horrorfuel.com/wp-content/uploads/2017/07/JACKALS-1-e1499440276202.jpg" />
                             <Card.Body>
                                 <div className="d-flex my-3">
                                     <h6 className="mr-auto badge badge-danger">Marder</h6>
@@ -60,13 +54,13 @@ const Blog = () => {
                     </Col>
                     <Col lg={4} xl={4} md={6} sm={12} xm={12}>
                         <Card  className="my-2">
-                            <Card.Img variant="top" src="https://livedemo00.template-help.com/wt_prod-19259/images/landing-it-company-7-570x415.jpg" />
+                            <Card.Img variant="top" src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/1800x1200_virus_3d_render_red_03_other.jpg" />
                             <Card.Body>
                                 <div className="d-flex my-3">
-                                    <h6 className="mr-auto badge badge-danger">Techonology</h6>
-                                    <h6 className="">by <strong className="text-danger">ak azad</strong></h6>
+                                    <h6 className="mr-auto badge badge-danger">Health</h6>
+                                    <h6 className="">by <strong className="text-danger">Admin</strong></h6>
                                 </div>
-                            <Card.Title className="my-2"><Link to="/blogDetails" className="text-decoration-none">Aware Of cyber-crime</Link> </Card.Title>
+                            <Card.Title className="my-2"><Link to="/blogDetails" className="text-decoration-none">Aware Of corona Virus</Link> </Card.Title>
                             <Card.Text>
                                 This is a wider card with supporting text below as a natural lead-in to
                                 additional content. This content is a little bit longer.
@@ -80,13 +74,13 @@ const Blog = () => {
                     </Col>
                     <Col lg={4} xl={4} md={6} sm={12} xm={12}>
                         <Card  className="my-2">
-                            <Card.Img variant="top" src="https://livedemo00.template-help.com/wt_prod-19259/images/landing-it-company-7-570x415.jpg" />
+                            <Card.Img variant="top" src="https://industrywired.com/wp-content/uploads/2020/08/Cyber-Security-scaled.jpeg" />
                             <Card.Body>
                                 <div className="d-flex my-3">
                                     <h6 className="mr-auto badge badge-danger">Techonology</h6>
                                     <h6 className="">by <strong className="text-danger">ak azad</strong></h6>
                                 </div>
-                            <Card.Title className="my-2"><Link to="/blogDetails" className="text-decoration-none">Why Outsourcing IT Services</Link> </Card.Title>
+                            <Card.Title className="my-2"><Link to="/blogDetails" className="text-decoration-none">Aware Of Digital cyber security</Link> </Card.Title>
                             <Card.Text>
                                 This is a wider card with supporting text below as a natural lead-in to
                                 additional content. This content is a little bit longer.

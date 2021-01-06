@@ -11,6 +11,7 @@ import NavbarDesktop from '../Components/Common/NavbarDesktop';
 import Footer from '../Components/Footer';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
+import appUrl  from '../Helpers/appUrl';
 
 
 const Registration = () => {
@@ -34,10 +35,11 @@ const Registration = () => {
        /// const newRegisters = {...data};
 
         //user registration
-        axios.post('http://localhost:8000/api/register',formData)
+        axios.post(`${appUrl.baseUrl}/api/register`,formData)
         .then(function (res) {
             console.log(res.data);
-           if(res.data.success){ 
+           if(res.data){ 
+               console.log();
                 setTimeout(function(){
                     locationLogin.push("/verifyCode");
                 },15000)
@@ -60,7 +62,7 @@ const Registration = () => {
        var nid = e.target.value;
        nidData.append('nid', nid);
 
-       axios.post('http://localhost:8000/api/register', nidData)
+       axios.post(`${appUrl.baseUrl}/api/register`, nidData)
        .then((res)=>{
            console.log(res.data);
            let getId = document.getElementById('msg');

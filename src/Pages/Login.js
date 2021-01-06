@@ -9,7 +9,7 @@ import { useState } from 'react';
 import message from '../Helpers/response';
 import {ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import appUrl from '../Helpers/appUrl';
 
 const Login = () => {
 
@@ -25,7 +25,7 @@ const Login = () => {
         //console.log(login);
         // axios.post('http://localhost:8000/user', newRegister)
 
-        axios.post('http://localhost:8001/login',login)
+        axios.post(`http://localhost:8001/login`,login)
         .then( res => {
             if (res.data.token) {
                 localStorage.setItem('usertoken', res.data.token); 
@@ -74,7 +74,7 @@ const Login = () => {
                         <div>
                             <p>Don't Have an Account <Link to="/resigtraion">Sign Up</Link> </p>
                         </div>
-                        <p className="or-login text-center">OR</p>
+                        {/* <p className="or-login text-center">OR</p>
                         
                         <div className="d-flex m-2 my-4">
                             <div className="fb text-center mx-2">  
@@ -83,7 +83,7 @@ const Login = () => {
                             <div className="google text-center ml-5">
                                 <img src={google} alt=""/><span className="pl-1">Google</span>
                             </div>
-                        </div>
+                        </div> */}
                     </form>
                 </Col>
             </Row>
