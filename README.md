@@ -1,68 +1,35 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Online Crime Reporting System**
 
-## Available Scripts
+## About System
+The main purpose of developing the online crime reporting system is for the welfare and safety of the public.Due to some factors in today’s time public sometimes do not trust the government officials, due to this they don’t ever want to go the station and file a repor.So this system will reconstruct the bridge between the two - public and government officials respectively.So now if anyone want to file a complaint, they can do it easily from their home
 
-In the project directory, you can run:
+## Proposed system
+- The victims can file the FIR through an website under police station & send photo, video or others  evidence by website
+- People not need to go police station to see the criminals information.
+- They can directly see information on the website  
+- Visitor can easily gate the information about the crime.
+- People can save their time & man power.
+- Victim can know the current complain status  through sending mail/ Victim profile.
 
-### `yarn start`
+## Activities of user
+- First of all,  User will register with proper data (where E-mail and NID number must be valid for everyone)
+- Once User registered than he/she can login in this system and register their FIR
+- User can feedback our service
+- user can see complain list and details on their user panel and also complain status
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Featured Calint-Side
+- Home Page
+  - many components of home page, such as
+  about, most wanted criminal, user Feedback, blogs, headers
+- criminal criminals details & comment system
+- user panel
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Technologys are used
+- React js 
+- Javascript
+- Laravel
+- Rest api
+- Axios
+- Bootstrap 
+- Html5
+- Css3
