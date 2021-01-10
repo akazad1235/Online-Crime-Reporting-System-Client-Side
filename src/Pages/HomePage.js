@@ -8,6 +8,7 @@ import Counters from '../Components/Counters';
 import Footer from '../Components/Footer';
 import Header from '../Components/Header';
 import Headline from '../Components/Healine';
+import Missing from '../Components/Missing';
 import Subscribe from '../Components/Subscribe';
 
 const HomePage = () => {
@@ -17,6 +18,7 @@ const HomePage = () => {
            <NavbarDesktop/>
            <Header/>
            <About/>
+           <Missing/>
            <Counters/>
            <ClientFeedback/>
            <Blog/>

@@ -30,10 +30,9 @@ const NavbarDesktop = () => {
                     <Nav className="ml-auto">
                         <Nav.Link > <Link to="/home" className="text-info">Home</Link></Nav.Link>
                         <Nav.Link > <Link to="/addComplain" className="text-info">Complain</Link></Nav.Link>
-                        <Nav.Link > <Link to="/viewComplain" className="text-info">User Panel</Link></Nav.Link>
-                        <Nav.Link > <Link to="/viewComplain" className="text-info">{localStorage.getItem('email') ? '': 'Registration'}</Link></Nav.Link>
-                        <Nav.Link > <Link to="/resigtraion" className="text-info">{localStorage.getItem('email') ? 'User Panel': ''}</Link></Nav.Link>
-                        <Nav.Link > <Link to="/login" className="text-info">{localStorage.getItem('email') ? '': 'Login'}</Link></Nav.Link>
+                        <Nav.Link > <Link to="/resigtraion" className="text-info">{localStorage.getItem('email')?'':'Registration'}</Link></Nav.Link>
+                        <Nav.Link > <Link to="/viewComplain" className="text-info">{localStorage.getItem('email') ?'User Panel':''}</Link></Nav.Link>
+                        <Nav.Link > <Link to="/login" className="text-info">{localStorage.getItem('email') ? '':'Login'}</Link></Nav.Link>
                        
                        <form>
                            {localStorage.getItem('email') ?  <button type="submit" className="btn btn-danger" onClick={logout}><Link to="/" className="text-white">Logout</Link></button> : '' }

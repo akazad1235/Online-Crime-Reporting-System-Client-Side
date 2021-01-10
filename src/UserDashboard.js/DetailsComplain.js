@@ -14,12 +14,16 @@ const DetailsComplain = () => {
     const {id} = useParams();
 
     const [detailsComplain, setDetailsComplain] = useState({})
+    const [station, setStation] = useState()
     const [avidance, setAvidance] = useState([])
+    console.log(avidance);
+    console.log(typeof(avidance));
     useEffect(()=>{ 
         Axios.get(`${appUrl.baseUrl}/api/complain/${id}`)
        .then(res => {
         setDetailsComplain(res.data.result);
         setAvidance(res.data.convertFile);
+        setStation(res.data.station);
         
        })
    }, [])
@@ -41,21 +45,25 @@ const DetailsComplain = () => {
                     </Col>
                     <Col xl={10} lg={10} md={10} sm={6} xs={12}>
                         <div className="avidance">
-                            <div class="row my-1  border-bottom">
-                                <div class="col-md-3 font-weight-bold  align-self-center text-dark">Complain Name</div>
-                                <div class="col-md-8 p-3 text-capitalize">{detailsComplain.complain_type}</div>
+                            <div className="row my-1  border-bottom">
+                                <div className="col-md-3 font-weight-bold  align-self-center text-dark">Complain Name</div>
+                                <div className="col-md-8 p-3 text-capitalize">{detailsComplain.complain_type}</div>
                             </div>
-                            <div class="row my-1  border-bottom">
-                                <div class="col-md-3 font-weight-bold  align-self-center text-dark">Complain Description</div>
-                                <div class="col-md-8 p-3 ">{detailsComplain.desc}</div>
+                            <div className="row my-1  border-bottom">
+                                <div className="col-md-3 font-weight-bold  align-self-center text-dark">Complain Description</div>
+                                <div className="col-md-8 p-3 ">{detailsComplain.desc}</div>
                             </div>
-                            <div class="row my-1  border-bottom">
-                                <div class="col-md-3 font-weight-bold  align-self-center text-dark">Complain Place</div>
-                                <div class="col-md-8 p-3 ">{detailsComplain.place}</div>
+                            <div className="row my-1  border-bottom">
+                                <div className="col-md-3 font-weight-bold  align-self-center text-dark">Complain Place</div>
+                                <div className="col-md-8 p-3 ">{detailsComplain.place}</div>
                             </div>
-                            <div class="row my-1  border-bottom">
-                                <div class="col-md-3 font-weight-bold  align-self-center text-dark">Evidence Imge</div>
-                                <div class="col-md-8 ">
+                            <div className="row my-1  border-bottom">
+                                <div className="col-md-3 font-weight-bold  align-self-center text-dark">Police Station Name</div>
+                            <div className="col-md-8 p-3 text-danger " >{station}</div>
+                            </div>
+                            <div className="row my-1  border-bottom">
+                                <div className="col-md-3 font-weight-bold  align-self-center text-dark">Evidence Imge</div>
+                                <div className="col-md-8 ">
                                 {
                                    avidance.map((filltt) => {
                                     if(filltt.split('.').pop() =='jpg'){
@@ -72,8 +80,8 @@ const DetailsComplain = () => {
                                 </div>
                             </div>
                             <div class="row my-1  border-bottom">
-                                <div class="col-md-3 font-weight-bold  align-self-center text-dark">Evidence  Pdf</div>
-                                <div class="col-md-8">
+                                <div className="col-md-3 font-weight-bold  align-self-center text-dark">Evidence  Pdf</div>
+                                <div className="col-md-8">
                                 {
                                    avidance.map((pdf) => {
                                     if(pdf.split('.').pop() =='pdf'){
@@ -90,9 +98,9 @@ const DetailsComplain = () => {
                                 }
                                 </div>
                             </div>
-                            <div class="row my-1  border-bottom">
-                                <div class="col-md-3 font-weight-bold  align-self-center text-dark">Evidence Mp4</div>
-                                <div class="col-md-8">
+                            <div className="row my-1  border-bottom">
+                                <div className="col-md-3 font-weight-bold  align-self-center text-dark">Evidence Mp4</div>
+                                <div className="col-md-8">
                                 {
                                    avidance.map((video) => {
                                     if(video.split('.').pop() =='mp4'){
@@ -108,9 +116,9 @@ const DetailsComplain = () => {
                                 }
                                 </div>
                             </div>
-                            <div class="row my-1  border-bottom">
-                                <div class="col-md-3 font-weight-bold  align-self-center text-dark">Evidence Audio</div>
-                                <div class="col-md-8">
+                            <div className="row my-1  border-bottom">
+                                <div className="col-md-3 font-weight-bold  align-self-center text-dark">Evidence Audio</div>
+                                <div className="col-md-8">
                                 {
                                    avidance.map((audio) => {
                                     if(audio.split('.').pop() == 'mp3'){

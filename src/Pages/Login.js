@@ -12,27 +12,44 @@ import 'react-toastify/dist/ReactToastify.css';
 import appUrl from '../Helpers/appUrl';
 
 const Login = () => {
-
+    const [userInfo, setUserInfo] = useState({})
     const {register, handleSubmit, errors} =useForm();
 
     const [error, setError] = useState()
     let homePage = useHistory();
 
-
+ const handleClick = (e)=>{
+            const email = e.target.value;
+            // const data  ={
+            //     email: email
+            // }
+     axios.get(`http://localhost:8000/api/userLogin/${email}`)
+     .then((res)=>{
+         console.log(res.data.result);
+         setUserInfo(res.data.result)
+     })
+     .catch((error)=>{
+         console.log(error);
+     })
+ }
 
     const onSubmit = (data) => {
         const login = {...data};
         //console.log(login);
         // axios.post('http://localhost:8000/user', newRegister)
 
-        axios.post(`http://localhost:8001/login`,login)
+        axios.post(`http://localhost:8000/api/userLogin`,login)
         .then( res => {
-            if (res.data.token) {
-                localStorage.setItem('usertoken', res.data.token); 
+            if (res.data.success) {
+               // localStorage.setItem('usertoken', res.data.token); 
+               localStorage.setItem('id',userInfo.id); 
+               localStorage.setItem('email',userInfo.email); 
+               localStorage.setItem('name',userInfo.name); 
+               
                 const token = res.data.token;
-                message('success', 'Welcome, You are a valid user');
+                message('success', res.data.success);
                 setTimeout(function(){
-                    homePage.push("/verityToken");
+                    homePage.push("/viewComplain");
                 },3600)
                 
 
@@ -60,7 +77,7 @@ const Login = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-group">
                               <label for="name">Email</label>
-                             <input type="email" className="form-control" id="name" name="email" placeholder="Enter Your Register Email" ref={register}/>
+                             <input type="email" className="form-control" id="name" onBlur={handleClick} name="email" placeholder="Enter Your Register Email" ref={register}/>
                         </div> 
                         <div className="form-group">
                               <label for="name">Password</label>

@@ -15,11 +15,11 @@ import appUrl from '../Helpers/appUrl';
 
 const AddComplain = () => {
     const [stations, setStation] = useState([])
+    const [district, setDistrict] = useState([])
    const [file, setFile] = useState(null);
 
    const location = useHistory();
-
-    //console.log(file);
+    console.log(stations);
 
     const handleFileChange = (e) => {
         const newFile = e.target.files;
@@ -31,15 +31,87 @@ const AddComplain = () => {
     useEffect(()=>{
         Axios.get(`${appUrl.baseUrl}/addComplian`)
         .then(res => {
-            setStation(res.data);
+            // let district = res.data.district
+            // let station = res.data.station
+            // for (let i = 0; i <district.length; i++) {
+            //     const element = district[i];
+                
+                
+            // }
+            
+            // res.data.district.forEach(element => {
+                
+            //    // console.log(element.id);
+            //     res.data.station.forEach(elements => {
+            //         if(elements.district_id == 1) {
+            //             console.log('fuck');
+            //         }
+            //     })
+                
+                
+            // });
+            setDistrict(res.data.district)
+        
         })
     }, [])
 
+    //filter station
+    const handleDistrict = (e)=>{
+        console.log(e.target.value);
+        let id = e.target.value;
+        Axios.get(`${appUrl.baseUrl}/api/getStation/${id}`)
+        .then((res)=>{
+            console.log(res.data);
+            let data = res.data;
+            let station = document.getElementById("station");
+                let  stationIndex = station.value
+                console.log(stationIndex);
+
+                if (stationIndex) {
+                    let tag = document.getElementsByName('option');
+                  let convertStd =  Object.values(station);
+                  console.log(typeof(convertStd));
+                  
+                    for (let getval = 0; getval < 8; getval++) {
+   
+                           station.removeChild(station[0]);
+
+                        //  const elementt = stationIndex[getval];
+                        //  elementt = ''
+                        console.log('testss');
+
+                    }
+                }else{
+                    data.forEach(element => {
+                        console.log(element.policeStationName);
+                        let option = document.createElement('option');
+                            option.setAttribute('value', `${element.id}`);
+                           
+                            station.appendChild(option)
+                            option.innerHTML = element.policeStationName
+                              console.log(station.length);
     
+                    });
+                }
+                
+                // if (stationIndex) {
+                //     for (let vv = 0; vv < stationIndex.length; vv++) {
+                //         const getOption = stationIndex[vv];
+                //             getOption.getAttribute('op')
+                        
+                //     }
+                //     station.getAttribute('value')
+                // }
+               
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+    }
 
     const onSubmit =  (data) => {
-       // const getData = {...data}
-       // console.log(getData);
+        // const getData = {...data}
+        // console.log(getData);
        // console.log(data.image[0].name);
           const formData = new FormData()
            
@@ -85,6 +157,7 @@ const AddComplain = () => {
    
        }
 
+
     return (
         <div>
             <NavbarDesktop/>
@@ -106,24 +179,19 @@ const AddComplain = () => {
                                 </div> 
                                 <div className="d-flex">
                                     <div className="form-group w-50 mr-1">
-                                        <label for="name">Police Station<span className="text-danger">*</span></label>
-                                        <select className="form-control" ref={register} name="station_id" required>
+                                        <label for="name">District<span className="text-danger">*</span></label>
+                                        <select className="form-control" onClick={handleDistrict} ref={register}  required>
                                             <option value="">Select Nearest Police Station</option>
                                             {
-                                                stations.map((std => <option value={std.id}>{std.policeStationName}</option>))
+                                                district.map((dst => <option  value={dst.id}>{dst.district}</option>))
                                            }
 
                                         </select>
                                     </div> 
                                     
                                     <div className="form-group w-50">
-                                        <label for="email-id">Crime type <span className="text-danger">*</span></label>
-                                        <select className="form-control" ref={register} name="crime_type" required>
-                                            <option value="">Select  Crime Type</option>
-                                            <option value="marder">Marder</option>
-                                            <option value="rap">Rap</option>
-                                            <option value="theft">Theft</option>
-                                            <option value="robbery">Robbery</option>
+                                        <label for="email-id">Police Station<span className="text-danger">*</span></label>
+                                        <select className="form-control" id="station" ref={register} name="station_id" required>
                                         </select>
                                     </div> 
                                 </div>
@@ -131,19 +199,32 @@ const AddComplain = () => {
                                   <label for="dof">Crime description <span className="text-danger">*</span></label>
                                   <textarea className="form-control" ref={register} placeholder="Please Write Down Your Crime description" name="desc" required></textarea>
                                </div>
+                               <div className="d-flex align-center">
+                                    <div className="form-group flex-fill mr-1">
+                                        <label for="img">Your Colleted Source File</label>
+                                        <input type="file" onChange={handleFileChange}  accept=".jpg, .png, .gif, .jpeg, .pdf, .docs, .mp3, .mp4, .avi" className="form-control" id="img" name="file[]" multiple/>
+                                    </div> 
+                                            
+                                    <div className="form-group flex-fill">
+                                        <label for="email-id">Crime type <span className="text-danger">*</span></label>
+                                        <select className="form-control" id="station" ref={register} name="crime_type" required>
+                                            <option value="marder">Marder</option>
+                                            <option value="rap">Rap</option>
 
-                               <div className="form-group">
-                                  <label for="dof">Spot Place <span className="text-danger">*</span></label>
-                                  <textarea className="form-control" ref={register} placeholder="Please Write Down Your Crime Spot Place" name="place" required></textarea>
-                               </div>
+                                        </select>
+                                    </div> 
+                                </div>
+
+                             
                                 {/* <div className="form-group">
                                   <label for="img">Your Colleted Source Image <span className="text-danger">*</span></label>
                                  <input  type="file" ref={register} accept=".jpg, .png, .gif, .jpeg" className="form-control" id="img" name="image" required/>
                                </div>  */}
-                              <div className="form-group">
-                                  <label for="img">Your Colleted Source File</label>
-                                 <input type="file" onChange={handleFileChange}  accept=".jpg, .png, .gif, .jpeg, .pdf, .docs, .mp3, .mp4, .avi" className="form-control" id="img" name="file[]" multiple/>
-                               </div> 
+                              
+                               <div className="form-group ">
+                                        <label for="dof">Crime Place <span className="text-danger">*</span></label>
+                                        <textarea className="form-control" ref={register} placeholder="Please Write Down Your Crime Place" name="place" required></textarea>
+                                </div>
                                {/* <div className="form-group">
                                   <label for="img">Your Colleted Source Videos</label>
                                  <input type="file" className="form-control" id="img" name="video" />
