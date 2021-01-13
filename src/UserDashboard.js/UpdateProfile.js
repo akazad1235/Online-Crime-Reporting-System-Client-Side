@@ -12,7 +12,6 @@ import { useEffect } from 'react';
 
 const UpdateProfile = () => {
 
-
     const {register, handleSubmit, errors, reset} =useForm();
     const [userInfo, setUserInfo] = useState({
         name:'',
@@ -69,8 +68,8 @@ const UpdateProfile = () => {
            if(res.data.error){
                 message('error', res.data.error);
            }else{
-            message('success', res.data.success);
-            reset();
+                message('success', res.data.success);
+                reset();
            }   
        })
        .catch(error =>  {
@@ -104,7 +103,7 @@ const UpdateProfile = () => {
                                </div> 
                                <div className="form-group">
                                   <label for="name" className="text-success">NID Number</label>
-                                 <input type="text" disabled className="form-control" id="name" name="nid" onChange={handleChange}  value={userInfo.nid} placeholder="Enter Your phone" ref={register}/>
+                                  <input type="text" disabled className="form-control" id="name" name="nid" onChange={handleChange}  value={userInfo.nid} placeholder="Enter Your phone" ref={register}/>
                                </div>
                                {/* <div className="form-group" ref={register} onChange={handleChange} >
                                   <label for="phone-number">Gender</label><br/>

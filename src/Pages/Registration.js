@@ -30,7 +30,7 @@ const Registration = () => {
           formData.append('gender', data.gender);
           formData.append('birth_day', data.birth_day); 
           formData.append('image', data.image[0]);
-          formData.append('varification_code', Math.floor(100000 + Math.random() * 900000));
+         // formData.append('varification_code', Math.floor(100000 + Math.random() * 900000));
           formData.append('password', data.password);
        /// const newRegisters = {...data};
 
@@ -40,10 +40,11 @@ const Registration = () => {
             console.log(res.data);
            if(res.data){ 
                console.log();
+                
+                message('success', res.data.success);
                 setTimeout(function(){
                     locationLogin.push("/verifyCode");
-                },15000)
-                message('success', res.data.success);
+                },1000)
                 reset()
            }else{
             message('warning', res.data.warning);

@@ -50,7 +50,7 @@ const Login = () => {
                 message('success', res.data.success);
                 setTimeout(function(){
                     homePage.push("/viewComplain");
-                },3600)
+                },2000)
                 
 
             }else{
@@ -65,6 +65,15 @@ const Login = () => {
        }) 
 
     }
+    const showPass = () => {
+        console.log('checked');
+        var pass = document.getElementById("password");
+        if (pass.type === "password") {
+            pass.type = "text";
+          } else {
+            pass.type = "password";
+          }
+    }
 
     return (
         <>
@@ -73,15 +82,16 @@ const Login = () => {
             <Row>
                 <Col lg={4} xl={4} md={4} sm={6} xs={12}  className="m-auto login-container p-3">
                     <h3 className="mb-4">User Login </h3>
-                    <p className="text-center text-danger my-2">{error ? 'username password not match':''}</p>
+                    <p className="text-center text-danger my-2">{error ? 'Username Password not Match, Try Again':''}</p>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-group">
                               <label for="name">Email</label>
                              <input type="email" className="form-control" id="name" onBlur={handleClick} name="email" placeholder="Enter Your Register Email" ref={register}/>
                         </div> 
                         <div className="form-group">
-                              <label for="name">Password</label>
-                             <input type="password" className="form-control" id="name" name="password" placeholder="Password" ref={register}/>
+                              <label for="password">Password</label>
+                             <input type="password" className="form-control" id="password" name="password" placeholder="Password" ref={register}/>
+                             <input type="checkbox" onClick={showPass }/> Show Password
                         </div>
                         <div className="form-group">
                               <label for="pass"></label>

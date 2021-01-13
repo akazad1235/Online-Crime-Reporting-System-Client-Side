@@ -47,7 +47,7 @@ const VerificationCode = () => {
                 if(res.data.success){ 
                     setTimeout(function(){
                         location.push("/login");
-                    },15000)
+                    },3000)
                     message('success', res.data.success);
                     reset()
                }
