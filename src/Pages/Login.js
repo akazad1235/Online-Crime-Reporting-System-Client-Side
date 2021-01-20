@@ -35,18 +35,20 @@ const Login = () => {
 
     const onSubmit = (data) => {
         const login = {...data};
-        //console.log(login);
+        console.log(login);
         // axios.post('http://localhost:8000/user', newRegister)
 
         axios.post(`http://localhost:8000/api/userLogin`,login)
         .then( res => {
+            console.log(res.data);
             if (res.data.success) {
+                
                // localStorage.setItem('usertoken', res.data.token); 
                localStorage.setItem('id',userInfo.id); 
                localStorage.setItem('email',userInfo.email); 
                localStorage.setItem('name',userInfo.name); 
                
-                const token = res.data.token;
+              //  const token = res.data.token;
                 message('success', res.data.success);
                 setTimeout(function(){
                     homePage.push("/viewComplain");
@@ -127,6 +129,7 @@ const Login = () => {
                 pauseOnHover
                 />
            <ToastContainer/>
+           
     </>
     );
 };
