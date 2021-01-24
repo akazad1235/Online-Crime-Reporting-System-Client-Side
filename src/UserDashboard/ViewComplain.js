@@ -14,13 +14,14 @@ import appUrl from '../Helpers/appUrl';
 
 const ViewComplain = () => {
 
+    //*************_for Complain  person state_***************
     const [complain, setComplain] = useState([])
     const [checkUser, setCheckUser] = useState({})
-
     //send code when click
     const [sendCode, setSendCode] = useState({})
 
-    console.log(complain);
+    //*************_for missing person state_***************
+    const [missing, setMissing] = useState([])
 
       //checking user active or not
       const id =localStorage.getItem('id');
@@ -47,15 +48,21 @@ const ViewComplain = () => {
 
     //active account when after click link & mail check
     const handleClick = ()=>{
-       
              Axios.put(`${appUrl.baseUrl}/api/users/${id}`)
              .then(res => {
                 setSendCode(res.data.result);
                 message('success', 'Activation code send success, Please Check Your Email');
-             })
-        
-           
+             })    
     }
+
+    //*************_missing person list only own complain_***************
+    useEffect(()=>{
+        Axios.get(`${appUrl.baseUrl}/api/missing/${LoggedId}`)
+       .then(res => {
+            setMissing(res.data.result);
+       })
+   }, [])
+
    // console.log(checkUser.varification_code);
 
     const arr = ['Panding', 'processing', 'Done'];
@@ -97,8 +104,32 @@ const ViewComplain = () => {
                                 })
                             }
                         </Row>
+
+                    <div  className="text-white rounded bg-secondary p-2 mt-3">List of Missing Person</div>
+
+                        <Row>
+                            {
+                                missing.map((missing)=>{
+                                  return  <Col xl={4}>   
+                                    <Card className="blog-card mr-1 my-2 ">
+                                        <button className={`btn btn-${arr2[missing.status]} text-capitalize`}>{arr[missing.status] }</button>
+                                        <Card.Body>
+                                            <h4 className="product-name-on-card text-center  text-capitalize">{missing.missing_type}</h4>
+                                            <p className="product-price-on-card text-justify ">{missing.desc.substr(0, 100)}</p>
+                                            <div className="d-flex">
+                                                <button className="btn btn-success"> <Link className="text-white" to={`/detailsComplain/${missing.id}`}>Details</Link> </button>
+                                                <p className="ml-4 text-secondary mt-2 post-date">{moment(missing.created_at).format('MMM Do YYYY')}</p>
+                                            </div>
+                                        </Card.Body>
+                                     </Card>
+                                    </Col>
+                                })
+                            }
+                        </Row>
                     </div>
+
                     </Col>
+                    
                 </Row>
             </Container>
             <Footer/>

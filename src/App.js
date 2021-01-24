@@ -19,13 +19,14 @@ import Registration from './Pages/Registration';
 import TestApi from './Pages/TestApi';
 import VerifayToken from './Pages/VerifayToken';
 import VerificationCode from './Pages/VerificationCode';
-import AddComplain from './UserDashboard.js/AddComplain';
-import DetailsComplain from './UserDashboard.js/DetailsComplain';
-import Feedback from './UserDashboard.js/Feedback';
-import HomeUserDashboard from './UserDashboard.js/HomeUserDashboard';
-import UpdateProfile from './UserDashboard.js/UpdateProfile';
-import ViewComplain from './UserDashboard.js/ViewComplain';
-import ViewProfile from './UserDashboard.js/ViewProfile';
+import AddComplain from './UserDashboard/AddComplain';
+import DetailsComplain from './UserDashboard/DetailsComplain';
+import Feedback from './UserDashboard/Feedback';
+import HomeUserDashboard from './UserDashboard/HomeUserDashboard';
+import UpdateProfile from './UserDashboard/UpdateProfile';
+import ViewComplain from './UserDashboard/ViewComplain';
+import ViewProfile from './UserDashboard/ViewProfile';
+import AddMissing from './UserDashboard/AddMissing';
 
 
 export const UserContext = createContext();
@@ -67,6 +68,10 @@ console.log(loggedInUser);
             <Route path="/detailsComplain/:id">
               <DetailsComplain/>
             </Route>
+            {/* mission */}
+            <PrivateRoute path="/addMissing">
+              <AddMissing/>
+            </PrivateRoute>
             <PrivateRoute path="/viewProfile">
               <ViewProfile/>
             </PrivateRoute>

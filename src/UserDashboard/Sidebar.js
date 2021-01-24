@@ -42,6 +42,7 @@ console.log(uesrProfile);
            <li className="text-white my-2"><i class="fas fa-list"></i><Link to="/viewComplain" className="p-3 text-white">View Complain</Link></li>
            <li className="text-white my-2"><i class="far fa-user-circle"></i><Link to="/viewProfile" className="p-3 text-white">User Profile </Link></li>
            <li className="text-white my-2"><i class="fas fa-plus-circle"></i><Link to="/feedback" className="p-3 text-white">Feedback</Link></li> 
+           <li className="text-white my-2"><i class="fas fa-plus-circle"></i><Link to="/addMissing" className="p-3 text-white">Add Missing</Link></li> 
         </div>
     );
 };

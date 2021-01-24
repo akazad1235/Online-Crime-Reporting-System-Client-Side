@@ -19,7 +19,7 @@ const AddComplain = () => {
    const [file, setFile] = useState(null);
 
    const location = useHistory();
-    console.log(stations);
+
 
     const handleFileChange = (e) => {
         const newFile = e.target.files;
@@ -35,7 +35,8 @@ const AddComplain = () => {
             // let station = res.data.station
             // for (let i = 0; i <district.length; i++) {
             //     const element = district[i];
-
+                
+                
             // }
             
             // res.data.district.forEach(element => {
@@ -116,8 +117,8 @@ const AddComplain = () => {
            
           formData.append('reg_id', data.reg_id);
           formData.append('station_id', data.station_id);
-          formData.append('name', data.station_id);
-          formData.append('missing_type', data.crime_type);
+          formData.append('crime_type', data.crime_type);
+          formData.append('place', data.place);
           formData.append('desc', data.desc);  
         //  formData.append('image', data.image[0]);
         if(file){
@@ -146,7 +147,10 @@ const AddComplain = () => {
                 message('error', res.data.error);
            }else{
             message('success', res.data.success);
-            location.push('/viewComplain')
+            setTimeout(function(){
+                location.push('/viewComplain')
+            },2000)
+            
             reset();
            }   
        })
@@ -184,6 +188,7 @@ const AddComplain = () => {
                                             {
                                                 district.map((dst => <option  value={dst.id}>{dst.district}</option>))
                                            }
+
                                         </select>
                                     </div> 
                                     
@@ -193,43 +198,22 @@ const AddComplain = () => {
                                         </select>
                                     </div> 
                                 </div>
-                                <div className="d-flex">
-                                    <div className="form-group w-50 mr-1">
-                                        <label for="name">Name<span className="text-danger">*</span></label>
-                                       <input type="text" name="name" className="form-control"/>
-                                    </div> 
-                                    
-                                    <div className="form-group w-50">
-                                        <label for="email-id">Police Station<span className="text-danger">*</span></label>
-                                        <input type="date" className="form-control" name="birth_day" />
-                                    </div> 
-                                </div>
-                                <div className="d-flex">
-                                    <div className="form-group w-50 mr-1">
-                                        <label for="name">Phone Number<span className="text-danger">*</span></label>
-                                       <input type="text" name="name" className="form-control"/>
-                                    </div> 
-                                    
-                                    <div className="form-group w-50">
-                                        <label for="email-id">Missing Date<span className="text-danger">*</span></label>
-                                        <input type="date" className="form-control" name="missing_date" />
-                                    </div> 
-                                </div>
-                                
+                                <div className="form-group">
+                                  <label for="dof">Crime description <span className="text-danger">*</span></label>
+                                  <textarea className="form-control" ref={register} placeholder="Please Write Down Your Crime description" name="desc" required></textarea>
+                               </div>
                                <div className="d-flex align-center">
                                     <div className="form-group flex-fill mr-1">
                                         <label for="img">Your Colleted Source File</label>
-                                        <input type="file" onChange={handleFileChange}  accept=".jpg, .png, .gif, .jpeg" className="form-control" id="img" name="file[]" multiple/>
+                                        <input type="file" onChange={handleFileChange}  accept=".jpg, .png, .gif, .jpeg, .pdf, .docs, .mp3, .mp4, .avi" className="form-control" id="img" name="file[]" multiple/>
                                     </div> 
                                             
                                     <div className="form-group flex-fill">
-                                        <label for="email-id">Missing Type <span className="text-danger">*</span></label>
+                                        <label for="email-id">Crime type <span className="text-danger">*</span></label>
                                         <select className="form-control" id="station" ref={register} name="crime_type" required>
-                                            <option value="marder">Select Choice</option>
-                                            <option value="marder">Person</option>
-                                            <option value="rap">Certificate</option>
-                                            <option value="rap">Nid</option>
-                                            <option value="rap">Others</option>
+                                            <option value="marder">Marder</option>
+                                            <option value="rap">Rap</option>
+
                                         </select>
                                     </div> 
                                 </div>
