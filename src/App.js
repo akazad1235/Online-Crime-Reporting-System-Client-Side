@@ -26,7 +26,9 @@ import HomeUserDashboard from './UserDashboard/HomeUserDashboard';
 import UpdateProfile from './UserDashboard/UpdateProfile';
 import ViewComplain from './UserDashboard/ViewComplain';
 import ViewProfile from './UserDashboard/ViewProfile';
+
 import AddMissing from './UserDashboard/AddMissing';
+import MissingPersongDetails from './UserDashboard/MissingPersongDetails';
 
 
 export const UserContext = createContext();
@@ -71,6 +73,9 @@ console.log(loggedInUser);
             {/* mission */}
             <PrivateRoute path="/addMissing">
               <AddMissing/>
+            </PrivateRoute>
+            <PrivateRoute path="/MissingDetails/:id">
+              <MissingPersongDetails/>
             </PrivateRoute>
             <PrivateRoute path="/viewProfile">
               <ViewProfile/>

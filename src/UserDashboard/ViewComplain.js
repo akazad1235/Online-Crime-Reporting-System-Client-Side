@@ -62,6 +62,7 @@ const ViewComplain = () => {
             setMissing(res.data.result);
        })
    }, [])
+   
 
    // console.log(checkUser.varification_code);
 
@@ -117,7 +118,7 @@ const ViewComplain = () => {
                                             <h4 className="product-name-on-card text-center  text-capitalize">{missing.missing_type}</h4>
                                             <p className="product-price-on-card text-justify ">{missing.desc.substr(0, 100)}</p>
                                             <div className="d-flex">
-                                                <button className="btn btn-success"> <Link className="text-white" to={`/detailsComplain/${missing.id}`}>Details</Link> </button>
+                                                <button className="btn btn-success"> <Link className="text-white" to={`/MissingDetails/${missing.id}`}>Details</Link> </button>
                                                 <p className="ml-4 text-secondary mt-2 post-date">{moment(missing.created_at).format('MMM Do YYYY')}</p>
                                             </div>
                                         </Card.Body>
