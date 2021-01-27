@@ -44,6 +44,7 @@ const MissingPersongDetails = () => {
                         <Sidebar/>
                     </Col>
                     <Col xl={10} lg={10} md={10} sm={6} xs={12}>
+                        <h2 className="text-success">Missing Person Details</h2>
                         <div className="avidance">
                             <div className="row my-1  border-bottom">
                                 <div className="col-md-3 font-weight-bold  align-self-center text-dark">Missing Persong Name</div>

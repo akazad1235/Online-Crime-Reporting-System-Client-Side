@@ -16,14 +16,8 @@ import appUrl from '../Helpers/appUrl';
 const AddComplain = () => {
     const [stations, setStation] = useState([])
     const [district, setDistrict] = useState([])
-   const [file, setFile] = useState(null);
 
-   const location = useHistory();
-
-    const handleFileChange = (e) => {
-        const newFile = e.target.files;
-        setFile(newFile);
-    }
+ 
 
     //handle hook form
     const {register, handleSubmit, errors, reset} =useForm();
@@ -92,14 +86,7 @@ const AddComplain = () => {
                     });
                 }
                 
-                // if (stationIndex) {
-                //     for (let vv = 0; vv < stationIndex.length; vv++) {
-                //         const getOption = stationIndex[vv];
-                //             getOption.getAttribute('op')
-                        
-                //     }
-                //     station.getAttribute('value')
-                // }
+
                
         })
         .catch((error)=>{
@@ -122,24 +109,9 @@ const AddComplain = () => {
           formData.append('missing_type', data.missing_type);
           formData.append('relation_name', data.relation_name);  
           formData.append('desc', data.desc);  
-        //  formData.append('image', data.image[0]);
-        if(file){
-           for (let i = 0; i < file.length; i++) {
-            formData.append(`file[${i}]`, file[i])
-        }
-          
-        }
-          
-         
-        //  formData.append('desc', 'ggg');
-        //  formData.append('address', 'jjj');
-    //     console.log(formData);
-   // const image = file;
-     //   console.log(formData);
-      //  image =  data.image[0].name;
-      //  const getComData =  {...data};
-       // console.log(getComData);
-       // const data = getCompData.append(image);
+          formData.append('image', data.image[0]);
+
+ 
        
         
        Axios.post(`${appUrl.baseUrl}/api/missing`, formData)
@@ -150,9 +122,7 @@ const AddComplain = () => {
            }else{
 
             message('success', res.data.success);
-            setTimeout(function(){
-                location.push('/viewComplain')
-            },2000)
+
             
             reset();
            }   
@@ -175,8 +145,8 @@ const AddComplain = () => {
                     </Col>
                     <Col xl={10} lg={10} md={10} sm={6} xs={12}>
                     <div className=" form-container  p-5">
-                        <h3 className="mb-4">Add Your Complain</h3>
-                        <form  onSubmit={handleSubmit(onSubmit)}>
+                        <h3 className="mb-4">Add Your Missing Person</h3>
+                        <form  onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
                                
                                 <div className="form-group w-100 mr-1">
                                         <select className="form-control" ref={register} name="reg_id" hidden>
@@ -226,7 +196,7 @@ const AddComplain = () => {
                                <div className="d-flex align-center">
                                     <div className="form-group flex-fill mr-1">
                                         <label for="img">Your Colleted Source File</label>
-                                        <input type="file" onChange={handleFileChange}  accept=".jpg, .png, .gif, .jpeg" className="form-control" id="img" name="file[]" multiple/>
+                                        <input type="file" className="form-control" name="image" ref={register} />
                                     </div> 
                                             
                                     <div className="form-group flex-fill">

@@ -13,8 +13,7 @@ import Subscribe from '../Components/Subscribe';
 
 const HomePage = () => {
     return (
-        <div>
-            
+        <div> 
            <NavbarDesktop/>
            <Header/>
            <About/>

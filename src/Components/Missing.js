@@ -6,10 +6,27 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import appUrl from '../Helpers/appUrl';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 
 const Missing = () => {
     const [criminals, setCriminals] = useState([]);
+
+    const [allMissing, setAllMissings] = useState([]);
+    const [file, setFile] = useState({});
+    useEffect(()=>{
+        axios.get(`${appUrl.baseUrl}/api/missing`)
+        .then(res =>{
+          console.log(res.data);
+          setAllMissings(res.data.result);
+        //  let file = res.data.file;
+          setFile(res.data.file)
+         // console.log(file);
+        })
+        .catch((error)=>{
+          console.log(error);
+        })
+      },[])
     const settings = {
         dots: false,
         infinite: true,
@@ -58,18 +75,18 @@ const Missing = () => {
                             <Container fluid={true} className="m-0 p-0 overflow-hidden">
                                 <Slider {...missing}>
                             {
-                                criminals.map((crm)  => {
-                                   return <div key={crm.id} className="p-1 ">
+                                allMissing.map((missing)  => {
+                                   return <div key={missing.id} className="p-1 ">
                                         <div className="d-flex my-4 mission-border" >
-                                        <img className="missing-img" src="https://image.shutterstock.com/image-photo/young-indian-travel-man-making-260nw-550667650.jpg" alt="Image" />
+                                        <img className="missing-img" src={`${appUrl.baseUrl}/admin/images/missing/${missing.file}`} alt="Image" />
                                         <div className="p-2">
-                                            <h5 className="my-1  text-justify"><Link to="/">Mr.Selim Khan</Link></h5>
-                                            <p className="my-1">0172548452</p>
-                                            <p className="my-1">12-20-20</p>
-                                            <p className="my-1">25 years old</p>
+                                            <h5 className="my-1  text-justify"><Link to="/">{missing.name}</Link></h5>
+                                            <p className="my-1">{missing.phone}</p>
+                                            <p className="my-1">{moment(missing.created_at).format('MMM Do YYYY')}</p>
+                                            <p className="my-1">{moment().diff(missing.birth_day, 'years',false)+' Years Old'}</p>
                                         </div>  
                                       </div>
-                                      <p>The crime rate is increasing at an alarming rateThe crime rate is increasing at an alarming rateThe crime rate is increasing at an alarming rate</p>
+                                      <p>{missing.desc.substr(0, 100)}</p>
                                 </div> 
                                 })
                             }
@@ -85,7 +102,7 @@ const Missing = () => {
                                 <Slider {...settings}>
                             {
                                 criminals.map((crm)  => {
-                                  
+
                                    return <div key={crm.id} className="p-1 ">
                                         <div className="criminal-image">
                                             <figure>

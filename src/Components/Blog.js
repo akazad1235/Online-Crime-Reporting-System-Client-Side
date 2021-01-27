@@ -8,7 +8,7 @@ const Blog = () => {
    
     return (
       <div className="my-5" id="blog">
-      <h1 className="text-center my-5">Crime Latest News</h1>
+      <h1 className="text-center my-5">News</h1>
           <Container>
               <Row>
 
@@ -34,7 +34,7 @@ const Blog = () => {
                     </Col>
                     <Col lg={4} xl={4} md={6} sm={12} xm={12}>
                         <Card  className="my-2">
-                            <Card.Img variant="top" src="https://horrorfuel.com/wp-content/uploads/2017/07/JACKALS-1-e1499440276202.jpg" />
+                            <Card.Img variant="top" className="img-fluid" src="https://horrorfuel.com/wp-content/uploads/2017/07/JACKALS-1-e1499440276202.jpg" />
                             <Card.Body>
                                 <div className="d-flex my-3">
                                     <h6 className="mr-auto badge badge-danger">Marder</h6>
