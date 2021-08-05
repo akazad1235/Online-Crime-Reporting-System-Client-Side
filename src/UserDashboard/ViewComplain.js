@@ -28,12 +28,12 @@ const ViewComplain = () => {
       useEffect(()=>{
         Axios.get(`${appUrl.baseUrl}/api/users/${id}`)
         .then(res => {
-           
+            console.log(res.data)
             setCheckUser(res.data.result);
         })
     }, [])
 
-  //  console.log(checkUser);
+   console.log(checkUser);
 
 
     
@@ -79,8 +79,8 @@ const ViewComplain = () => {
                     </Col>
                     <Col xl={10} lg={10} md={10} sm={6} xs={12}>
                     <div className="form-container  p-5">
-                        <div className={`alert alert-${checkUser.acc_active == 1 ? 'success':'danger'} alert-dismissible fade show`} role="alert">
-                        <strong>Hello,  {localStorage.getItem('name')}!</strong> {checkUser.acc_active ==1 ? 'Your Account Active':'Your Account Inactive'} <span onClick={() => handleClick()} style={{textDecoration:'underline', cursor:'pointer', color:'blue'}}>{checkUser.acc_active == 1 ? '':'click active account'}</span>
+                        <div className={`alert alert-${checkUser.acc_active === 1 ? 'success':'danger'} alert-dismissible fade show`} role="alert">
+                        <strong>Hello,  {localStorage.getItem('name')}!</strong> {checkUser.acc_active === 1 ? 'Your Account Active':'Your Account Inactive'} <span onClick={() => handleClick()} style={{textDecoration:'underline', cursor:'pointer', color:'blue'}}>{checkUser.acc_active == 1 ? '':'click active account'}</span>
                         <button type="button" className="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

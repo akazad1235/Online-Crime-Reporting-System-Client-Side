@@ -10,22 +10,26 @@ import message from '../Helpers/response';
 import {ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 import appUrl from '../Helpers/appUrl';
 
 const Login = () => {
     const [userInfo, setUserInfo] = useState({})
     const {register, handleSubmit, errors} =useForm();
+    const[loginInfo, setLoginInfo] =useState({email:'user@gmail.com', password:'User@12345'})
 
     const [error, setError] = useState()
     let homePage = useHistory();
 
  const handleClick = (e)=>{
-            const email = e.target.value;
+         let email = e.target.value;
+         var formData = new FormData;
+            formData.append('email', email)
+
+            
             // const data  ={
             //     email: email
             // }
-     axios.get(`http://localhost:8000/api/userLogin/${email}`)
+     axios.post('https://admin-ecrime.azadhosen.com/api/checkEmail', formData)
      .then((res)=>{
          console.log(res.data.result);
          setUserInfo(res.data.result)
@@ -34,21 +38,33 @@ const Login = () => {
          console.log(error);
      })
  }
+ const handleChange =(e)=>{
+        const copyInfo = {...loginInfo}
+        copyInfo[e.target.name] = e.target.value
+        setLoginInfo(copyInfo);
+
+ }
+ console.log(loginInfo);
 
     const onSubmit = (data) => {
-        const login = {...data};
-        console.log(login);
+        let{email, password} = loginInfo
+        var formData = new FormData;
+            formData.append('email', email)
+            formData.append('password', password)
         // axios.post('http://localhost:8000/user', newRegister)
 
-        axios.post(`http://localhost:8000/api/userLogin`,login)
+        axios.post(`${appUrl.baseUrl}/api/userLogin`,formData)
         .then( res => {
             console.log(res.data);
-            if (res.data.success) {
+            if (res.data.status === 200) {
+                let id = res.data.result.id;
+                let email = res.data.result.email;
+                let name = res.data.result.name;
                 
                // localStorage.setItem('usertoken', res.data.token); 
-               localStorage.setItem('id',userInfo.id); 
-               localStorage.setItem('email',userInfo.email); 
-               localStorage.setItem('name',userInfo.name); 
+               localStorage.setItem('id', id); 
+               localStorage.setItem('email', email); 
+               localStorage.setItem('name', name); 
                
               //  const token = res.data.token;
                 message('success', res.data.success);
@@ -86,15 +102,15 @@ const Login = () => {
             <Row>
                 <Col lg={4} xl={4} md={4} sm={6} xs={12}  className="m-auto login-container p-3">
                     <h3 className="mb-4">User Login </h3>
-                    <p className="text-center text-danger my-2">{error ? 'Username Password not Match, Try Again':''}</p>
+                    <p className="text-center text-danger my-2">{error ? 'User email or password not Match, Try Again':''}</p>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-group">
                               <label for="name">Email</label>
-                             <input type="email" className="form-control" id="name" onBlur={handleClick} name="email" placeholder="Enter Your Register Email" ref={register}/>
+                             <input type="email" className="form-control" id="name" value={loginInfo.email} onChange={handleChange} name="email" placeholder="Enter Your Register Email" />
                         </div> 
                         <div className="form-group">
                               <label for="password">Password</label>
-                             <input type="password" className="form-control" id="password" name="password" placeholder="Password" ref={register}/>
+                             <input type="password" className="form-control" id="password" value={loginInfo.password} onChange={handleChange} name="password" placeholder="Password" />
                              <input type="checkbox" onClick={showPass }/> Show Password
                         </div>
                         <div className="form-group">
